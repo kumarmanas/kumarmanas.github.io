@@ -50,7 +50,7 @@ Language
 
 Publications
 ======
-  <ul>{% Proceedings of the 16th International Rule Challenge and 6th Doctoral Consortium @ RuleML+RR 2022%}
+  <ul>{% Proceedings of the 16th International Rule Challenge and 6th Doctoral Consortium- RuleML+RR 2022%}
     {% [Legal Compliance Checking of Autonomous Driving with Formalized Traffic Rule Exceptions](https://ceur-ws.org/Vol-3437/paper4LPLR.pdf) %}
   {% endfor %}</ul>
   <ul>{% Doctoral Consortium Workshop at RuleMl+RR %}
