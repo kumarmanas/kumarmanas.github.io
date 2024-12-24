@@ -4,261 +4,139 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kumar Manas - PhD Student</title>
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         body {
-            font-family: 'Inter', Arial, sans-serif;
+            font-family: Arial, sans-serif;
             line-height: 1.6;
-        }
-
-        .navbar {
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin: 0;
+            padding: 0;
         }
 
         .navbar-brand {
             font-weight: bold;
         }
 
-        .hero-section {
-            padding: 6rem 0;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-        }
-
         .section {
-            padding: 5rem 0;
+            padding: 4rem 0;
         }
 
-        .section-title {
-            margin-bottom: 3rem;
-            position: relative;
-            padding-bottom: 1rem;
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background: #333;
+            color: #fff;
         }
 
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 50px;
-            height: 3px;
+        .cv-link {
+            display: inline-block;
+            margin: 1rem 0;
+            padding: 0.5rem 1rem;
             background: #0056b3;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .cv-link:hover {
+            background: #004494;
+        }
+
+        .profile-image {
+            max-width: 200px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
         }
 
         .publication-card {
             transition: transform 0.3s ease;
-            margin-bottom: 1.5rem;
-            border: none;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
         .publication-card:hover {
             transform: translateY(-5px);
         }
-
-        .social-links a {
-            color: #6c757d;
-            margin-right: 1rem;
-            font-size: 1.5rem;
-            transition: color 0.3s ease;
-        }
-
-        .social-links a:hover {
-            color: #0056b3;
-        }
-
-        .cv-link {
-            display: inline-block;
-            padding: 0.8rem 1.5rem;
-            background: #0056b3;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-        }
-
-        .cv-link:hover {
-            background: #004494;
-            transform: translateY(-2px);
-            color: white;
-        }
-
-        .research-image {
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-
-        footer {
-            background: #343a40;
-            color: #fff;
-            padding: 2rem 0;
-        }
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             <a class="navbar-brand" href="#">Kumar Manas</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About Me</a></li>
                     <li class="nav-item"><a class="nav-link" href="#research">Research</a></li>
                     <li class="nav-item"><a class="nav-link" href="#publications">Publications</a></li>
                     <li class="nav-item"><a class="nav-link" href="#patents">Patents</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#cv">CV</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <section class="hero-section" style="margin-top: 56px;">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-8">
-                    <h1 class="display-4 mb-4">Kumar Manas</h1>
-                    <p class="lead mb-4">PhD Researcher in Mathematics & Computer Science at Freie Universität Berlin</p>
-                    <p class="mb-4">Specializing in Knowledge Formalization, Trajectory Prediction, and Automated Driving</p>
-                    <div class="social-links">
-                        <a href="mailto:kumar.manas@continental.com"><i class="fas fa-envelope"></i></a>
-                        <a href="https://github.com/kumarmanas" target="_blank"><i class="fab fa-github"></i></a>
-                        <a href="https://www.linkedin.com/in/kumarmanas27" target="_blank"><i class="fab fa-linkedin"></i></a>
-                        <a href="Curriculum_Vitae_Manas_Kumar.pdf" class="cv-link ms-3">Download CV</a>
-                    </div>
-                </div>
-                <div class="col-md-4 text-center">
-                    <img src="/api/placeholder/300/300" alt="Kumar Manas" class="img-fluid rounded-circle shadow">
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section id="about" class="section bg-light">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="row">
-                <div class="col-lg-8">
-                    <p class="lead">I am a PhD student at Freie Universität Berlin, working at the intersection of artificial intelligence and autonomous systems.</p>
-                    <p>My research focuses on developing innovative approaches to formalize traffic rules and integrate them into autonomous driving systems. At Continental AG, I work on implementing these theoretical frameworks into practical applications.</p>
-                </div>
-            </div>
+        <div class="container text-center">
+            <img src="images/profile.jpg" alt="Kumar Manas" class="profile-image shadow">
+            <h2>About Me</h2>
+            <p>I am a PhD student at Freie Universität Berlin, specializing in knowledge formalization, trajectory prediction, and automated driving. With a strong foundation in computer science and electrical engineering, I aim to integrate formalized rules into autonomous systems to enhance their safety and efficiency.</p>
         </div>
     </section>
 
     <section id="research" class="section">
         <div class="container">
-            <h2 class="section-title">Current Research</h2>
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="card h-100 publication-card">
-                        <img src="/api/placeholder/400/300" class="card-img-top research-image" alt="Traffic Rule Formalization">
-                        <div class="card-body">
-                            <h5 class="card-title">Traffic Rule Formalization</h5>
-                            <p class="card-text">Development of LLM-based frameworks for converting natural language traffic rules into formal logic.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card h-100 publication-card">
-                        <img src="/api/placeholder/400/300" class="card-img-top research-image" alt="Autonomous Driving">
-                        <div class="card-body">
-                            <h5 class="card-title">Autonomous Driving</h5>
-                            <p class="card-text">Integration of formalized rules as additional knowledge for autonomous driving systems.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card h-100 publication-card">
-                        <img src="/api/placeholder/400/300" class="card-img-top research-image" alt="Trajectory Prediction">
-                        <div class="card-body">
-                            <h5 class="card-title">Trajectory Prediction</h5>
-                            <p class="card-text">Advanced algorithms for predicting vehicle trajectories in complex traffic scenarios.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <h2>Research and Publications</h2>
+            <ul>
+                <li><strong>2024:</strong> <a href="https://iv2024.example.com" target="_blank">TR2MTL: LLM-based Framework for Metric Temporal Logic Formalization of Traffic Rules</a>, IEEE Intelligent Vehicles Symposium.</li>
+                <li><strong>2023:</strong> <a href="https://iclp2023.example.com" target="_blank">Legal Compliance Checking of Autonomous Driving with Formalized Traffic Rule Exceptions</a>, Workshop on Logic Programming and Legal Reasoning.</li>
+                <li><strong>2023:</strong> <a href="https://rules2023.example.com" target="_blank">Semantic Role Assisted Natural Language Rule Formalization for Intelligent Vehicles</a>, Springer Nature Switzerland.</li>
+            </ul>
         </div>
     </section>
 
-    <section id="publications" class="section bg-light">
+    <section id="patents" class="section bg-light">
         <div class="container">
-            <h2 class="section-title">Publications</h2>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="card publication-card">
-                        <div class="card-body">
-                            <h5 class="card-title">TR2MTL: LLM-based Framework for Metric Temporal Logic Formalization of Traffic Rules</h5>
-                            <p class="card-text text-muted">IEEE Intelligent Vehicles Symposium (2024)</p>
-                            <p class="card-text">Kumar Manas, Stefan Zwicklbauer, and Adrian Paschke</p>
-                        </div>
-                    </div>
-                    <div class="card publication-card">
-                        <div class="card-body">
-                            <h5 class="card-title">Legal Compliance Checking of Autonomous Driving with Formalized Traffic Rule Exceptions</h5>
-                            <p class="card-text text-muted">Workshop on Logic Programming and Legal Reasoning, ICLP (2023)</p>
-                            <p class="card-text">Kumar Manas, Stefan Zwicklbauer, and Adrian Paschke</p>
-                        </div>
-                    </div>
-                    <div class="card publication-card">
-                        <div class="card-body">
-                            <h5 class="card-title">Semantic Role Assisted Natural Language Rule Formalization for Intelligent Vehicle</h5>
-                            <p class="card-text text-muted">Rules and Reasoning, Springer Nature Switzerland (2023)</p>
-                            <p class="card-text">Kumar Manas and Adrian Paschke</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="patents" class="section">
-        <div class="container">
-            <h2 class="section-title">Patents</h2>
+            <h2>Patents</h2>
             <div class="card publication-card">
                 <div class="card-body">
                     <h5 class="card-title">System and method for translating natural language traffic rules into formal logic for autonomous moving vehicles</h5>
                     <p class="card-text text-muted">EU Patent No. EP4332824A1</p>
-                    <p class="card-text">Daniel Bär, Raffael schön, Stefan Zwicklbauer, and Manas Kumar</p>
+                    <a href="https://patents.google.com/patent/EP4332824A1" target="_blank" class="btn btn-primary">View Patent</a>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <section id="cv" class="section">
+        <div class="container">
+            <h2>Curriculum Vitae</h2>
+            <p>You can view or download my CV using the link below:</p>
+            <a class="cv-link" href="Curriculum_Vitae_Manas_Kumar.pdf" target="_blank">Download CV</a>
         </div>
     </section>
 
     <section id="contact" class="section bg-light">
         <div class="container">
-            <h2 class="section-title">Contact</h2>
-            <div class="row">
-                <div class="col-md-6">
-                    <p class="lead">Get in touch</p>
-                    <ul class="list-unstyled">
-                        <li class="mb-3">
-                            <i class="fas fa-envelope me-2"></i>
-                            <a href="mailto:kumar.manas@fu-berlin.de">kumar.manas@fu-berlin.de</a>
-                        </li>
-                        <li class="mb-3">
-                            <i class="fab fa-github me-2"></i>
-                            <a href="https://github.com/kumarmanas" target="_blank">github.com/kumarmanas</a>
-                        </li>
-                        <li class="mb-3">
-                            <i class="fab fa-linkedin me-2"></i>
-                            <a href="https://www.linkedin.com/in/kumarmanas27" target="_blank">linkedin.com/in/kumarmanas27</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+            <h2>Contact</h2>
+            <ul>
+                <li>Email: <a href="mailto:kumar.manas@continental.com">kumar.manas@continental.com</a></li>
+                <li>GitHub: <a href="https://github.com/kumarmanas" target="_blank">github.com/kumarmanas</a></li>
+                <li>LinkedIn: <a href="https://www.linkedin.com/in/kumarmanas27" target="_blank">linkedin.com/in/kumarmanas27</a></li>
+            </ul>
         </div>
     </section>
 
     <footer>
         <div class="container">
-            <div class="text-center">
-                <p>&copy; 2024 Kumar Manas. All Rights Reserved.</p>
-            </div>
+            <p>&copy; 2024 Kumar Manas. All Rights Reserved.</p>
         </div>
     </footer>
 
+    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
