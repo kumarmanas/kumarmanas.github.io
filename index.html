@@ -318,30 +318,31 @@
             const [activeSection, setActiveSection] = React.useState('input');
             
             const sections = {
+
                 input: {
-                    title: "Natural Language Input",
-                    content: "Traffic rules & instructions in plain English",
-                    example: '"Maintain safe distance of at least 2 car lengths when following another vehicle"'
-                },
-                formalization: {
-                    title: "Automated Formalization",
-                    content: "AI converts natural language into precise formal logic",
-                    example: "distance(ego_vehicle, leading_vehicle) >= 2 * car_length"
-                },
-                application: {
-                    title: "Real-World Applications",
-                    content: "Formal rules power autonomous systems",
-                    useCases: [
+                      title: "Natural Language Input",
+                      content: "Traffic rules & robots instructions in plain English",
+                      example: '"Maintain safe distance of at least 2 car lengths when following another vehicle"'
+                    },
+                    formalization: {
+                      title: "Automated Formalization",
+                      content: "LLM converts natural language into precise formal logic or code",
+                      example: "G(distance(ego_vehicle, leading_vehicle) >= (2 * car_length))"
+                    },
+                    application: {
+                      title: "Real-World Applications",
+                      content: "(Formal9 rules and constraints powered autonomous systems",
+                      useCases: [
                         "Verification: Mathematically prove rule compliance",
                         "Planning: Generate safe driving trajectories",
                         "Monitoring: Real-time rule checking"
-                    ]
-                }
-            };
+                      ]
+                    }
+                  };
 
             return (
                 <div className="interactive-demo">
-                    <h3 className="mb-4">Making Traffic Rules Machine-Readable: From Natural Language to Formal Logic</h3>
+                    <h3 className="mb-4">Making Traffic Rules and robot instruction Machine-Readable: From Natural Language to (Formal) Logic</h3>
                     
                     <div className="row">
                         {Object.entries(sections).map(([key, section], index) => (
