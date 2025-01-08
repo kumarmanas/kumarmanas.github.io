@@ -8,17 +8,17 @@ const InteractiveSlide = () => {
   const sections = {
     input: {
       title: "Natural Language Input",
-      content: "Traffic rules & instructions in plain English",
+      content: "Traffic rules & robots instructions in plain English",
       example: '"Maintain safe distance of at least 2 car lengths when following another vehicle"'
     },
     formalization: {
       title: "Automated Formalization",
-      content: "AI converts natural language into precise formal logic",
-      example: "distance(ego_vehicle, leading_vehicle) >= 2 * car_length"
+      content: "LLM converts natural language into precise formal logic or code",
+      example: "G(distance(ego_vehicle, leading_vehicle) >= (2 * car_length))"
     },
     application: {
       title: "Real-World Applications",
-      content: "Formal rules power autonomous systems",
+      content: "(Formal9 rules and constraints powered autonomous systems",
       useCases: [
         "Verification: Mathematically prove rule compliance",
         "Planning: Generate safe driving trajectories",
@@ -30,7 +30,7 @@ const InteractiveSlide = () => {
   return (
     <div className="w-full max-w-4xl mx-auto p-6 bg-white">
       <h2 className="text-2xl font-bold mb-6 text-center">
-        Making Traffic Rules Machine-Readable: From Natural Language to Formal Logic
+        Making Traffic Rules and robot instruction Machine-Readable: From Natural Language to (Formal) Logic
       </h2>
       
       <div className="flex flex-col gap-8">
@@ -83,7 +83,7 @@ const InteractiveSlide = () => {
                   {sections.formalization.example}
                 </div>
                 <p className="mt-4 text-gray-600">
-                  The AI system automatically converts natural language into precise, mathematical representations that computers can understand and work with.
+                  Our framework automatically converts natural language into precise, mathematical representations that computers can understand and work with.
                 </p>
               </div>
             )}
