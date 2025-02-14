@@ -57,9 +57,11 @@
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
-        .publication-card:hover {
-            transform: translateY(-5px);
-        }
+        publication-card:hover {
+			animation: bounce 0.5s;
+			box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+			filter: invert(1);
+		}
 
         .social-links a {
             color: #6c757d;
@@ -212,73 +214,69 @@
     </section>
 
     <!-- Publications section with new interactive demo -->
-    <section id="publications" class="section bg-light">
-        <div class="container">
-            <h2 class="section-title">Publications</h2>
+	
+	<section id="publications" class="section bg-light">
+		<div class="container">
+			<h2 class="section-title">Publications</h2>
 
-            <!-- Interactive Demo Card -->
-            <div class="row mb-4">
-                <div class="col-12">
-                    <div class="card publication-card">
-                        <div class="card-body">
-                            <h5 class="card-title">Interactive Demonstration: Traffic Rule Formalization</h5>
-                            <div id="demo-root"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+			<!-- Interactive Demo Card -->
+			<div class="row mb-4">
+				<div class="col-12">
+					<div class="card publication-card">
+						<div class="card-body">
+							<h5 class="card-title">Interactive Demonstration: Traffic Rule Formalization</h5>
+							<div id="demo-root"></div>
+						</div>
+					</div>
+				</div>
+			</div>
 
-            <!-- Existing publication cards -->
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="card publication-card">
-                        <div class="card-body">
-                            <h5 class="card-title"><a href="https://arxiv.org/abs/2410.16207" target="_blank">CoT-TL: Low-Resource Temporal Knowledge Representation of Planning Instructions Using Chain-of-Thought Reasoning</h5>
-                            <p class="card-text text-muted">2024 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)</p>
-                            <p class="card-text">Kumar Manas, Stefan Zwicklbauer, and Adrian Paschke</p>
-                            <p class="card-text">
-                                <a href="https://github.com/kumarmanas/kumarmanas.github.io/tree/main/papers/Cot-TL/poster.pdf" target="_blank"><i class="fas fa-file-pdf me-1"></i> Poster</a> |
-                                <a href="https://github.com/kumarmanas/kumarmanas.github.io/tree/main/papers/Cot-TL/presentation.pdf" target="_blank"><i class="fas fa-file-powerpoint me-1"></i> Presentation</a>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="card publication-card">
-                        <div class="card-body">
-                            <h5 class="card-title"><a href="https://ieeexplore.ieee.org/abstract/document/10588650" target="_blank">TR2MTL: LLM-based Framework for Metric Temporal Logic Formalization of Traffic Rules</h5>
-                            <p class="card-text text-muted">IEEE Intelligent Vehicles Symposium (2024)</p>
-                            <p class="card-text">Kumar Manas, Stefan Zwicklbauer, and Adrian Paschke</p>
-                            <p class="card-text">
-                                <a href="https://github.com/kumarmanas/kumarmanas.github.io/tree/main/papers/TR2MTL/poster.pdf" target="_blank"><i class="fas fa-file-pdf me-1"></i> Poster</a> |
-                                <a href="https://github.com/kumarmanas/kumarmanas.github.io/tree/main/papers/TR2MTL/presentation.pdf" target="_blank"><i class="fas fa-file-powerpoint me-1"></i> Presentation</a>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="card publication-card">
-                        <div class="card-body">
-                            <h5 class="card-title"><a href="https://ceur-ws.org/Vol-3437/paper4LPLR.pdf" target="_blank">Legal Compliance Checking of Autonomous Driving with Formalized Traffic Rule Exceptions</h5>
-                            <p class="card-text text-muted">Workshop on Logic Programming and Legal Reasoning in International Conference on Logic Programming (ICLP) (2023)</p>
-                            <p class="card-text">Kumar Manas, Stefan Zwicklbauer, and Adrian Paschke</p>
-                             <p class="card-text">
-                                <a href="https://github.com/kumarmanas/kumarmanas.github.io/tree/main/papers/Legal_Compliance_Checking_ICLP_2023/poster.pdf" target="_blank"><i class="fas fa-file-pdf me-1"></i> Poster</a> |
-                                <a href="https://github.com/kumarmanas/kumarmanas.github.io/tree/main/papers/Legal_Compliance_Checking_ICLP_2023/presentation.pdf" target="_blank"><i class="fas fa-file-powerpoint me-1"></i> Presentation</a>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="card publication-card">
-                        <div class="card-body">
-                            <h5 class="card-title"><a href="https://link.springer.com/chapter/10.1007/978-3-031-45072-3_13" target="_blank">Semantic Role Assisted Natural Language Rule Formalization for Intelligent Vehicle</h5>
-                            <p class="card-text text-muted">International Joint Conference on Rules and Reasoning (RuleML+RR)(2023)</p>
-                            <p class="card-text">Kumar Manas and Adrian Paschke</p>
-                            <p class="card-text">
-                                <a href="https://github.com/kumarmanas/kumarmanas.github.io/tree/main/papers/Semantic_role_assisted_rule_translation/poster.pdf" target="_blank"><i class="fas fa-file-pdf me-1"></i> Poster</a> |
-                                <a href="https://github.com/kumarmanas/kumarmanas.github.io/tree/main/papers/Semantic_role_assisted_rule_translation/presentation.pdf" target="_blank"><i class="fas fa-file-powerpoint me-1"></i> Presentation</a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+			<!-- Existing publication cards -->
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="card publication-card">
+						<div class="card-body">
+							<h5 class="card-title"><a href="https://ieeexplore.ieee.org/document/10801817" target="_blank">CoT-TL: Low-Resource Temporal Knowledge Representation of Planning Instructions Using Chain-of-Thought Reasoning</a></h5>
+							<p class="card-text text-muted">2024 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)</p>
+							<p class="card-text">Kumar Manas, Stefan Zwicklbauer, and Adrian Paschke</p>
+							<p class="card-text">
+								<a href="https://github.com/kumarmanas/kumarmanas.github.io/raw/main/papers/Cot-TL/IROS_poster.pdf" target="_blank"><i class="fas fa-file-pdf me-1"></i> Poster</a> |
+								<a href="https://github.com/kumarmanas/kumarmanas.github.io/raw/main/papers/Cot-TL/Cot-TL_Presentation.pptx" target="_blank"><i class="fas fa-file-powerpoint me-1"></i> Presentation</a>
+							</p>
+						</div>
+					</div>
+					<div class="card publication-card">
+						<div class="card-body">
+							<h5 class="card-title"><a href="https://ieeexplore.ieee.org/abstract/document/10588650" target="_blank">TR2MTL: LLM-based Framework for Metric Temporal Logic Formalization of Traffic Rules</a></h5>
+							<p class="card-text text-muted">IEEE Intelligent Vehicles Symposium (2024)</p>
+							<p class="card-text">Kumar Manas, Stefan Zwicklbauer, and Adrian Paschke</p>
+							<p class="card-text">
+								<a href="https://github.com/kumarmanas/kumarmanas.github.io/raw/main/papers/TR2MTL\IEEE_IV_Poster_Manas.pdf" target="_blank"><i class="fas fa-file-pdf me-1"></i> Poster</a> |
+							</p>
+						</div>
+					</div>
+					<div class="card publication-card">
+						<div class="card-body">
+							<h5 class="card-title"><a href="https://ceur-ws.org/Vol-3437/paper4LPLR.pdf" target="_blank">Legal Compliance Checking of Autonomous Driving with Formalized Traffic Rule Exceptions</a></h5>
+							<p class="card-text text-muted">Workshop on Logic Programming and Legal Reasoning in International Conference on Logic Programming (ICLP) (2023)</p>
+							<p class="card-text">Kumar Manas, Stefan Zwicklbauer, and Adrian Paschke</p>
+						</div>
+					</div>
+					<div class="card publication-card">
+						<div class="card-body">
+							<h5 class="card-title"><a href="https://link.springer.com/chapter/10.1007/978-3-031-45072-3_13" target="_blank">Semantic Role Assisted Natural Language Rule Formalization for Intelligent Vehicle</a></h5>
+							<p class="card-text text-muted">International Joint Conference on Rules and Reasoning (RuleML+RR) (2023)</p>
+							<p class="card-text">Kumar Manas and Adrian Paschke</p>
+							<p class="card-text">
+								<a href="https://github.com/kumarmanas/kumarmanas.github.io/raw/main/papers/Semantic_role_assisted_rule_translation\Paper_Presentation.pdf target="_blank"><i class="fas fa-file-powerpoint me-1"></i> Presentation</a>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
 
     <section id="patents" class="section">
         <div class="container">
