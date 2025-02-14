@@ -215,7 +215,7 @@
     <section id="publications" class="section bg-light">
         <div class="container">
             <h2 class="section-title">Publications</h2>
-            
+
             <!-- Interactive Demo Card -->
             <div class="row mb-4">
                 <div class="col-12">
@@ -236,6 +236,10 @@
                             <h5 class="card-title"><a href="https://arxiv.org/abs/2410.16207" target="_blank">CoT-TL: Low-Resource Temporal Knowledge Representation of Planning Instructions Using Chain-of-Thought Reasoning</h5>
                             <p class="card-text text-muted">2024 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)</p>
                             <p class="card-text">Kumar Manas, Stefan Zwicklbauer, and Adrian Paschke</p>
+                            <p class="card-text">
+                                <a href="https://github.com/kumarmanas/kumarmanas.github.io/tree/main/papers/Cot-TL/poster.pdf" target="_blank"><i class="fas fa-file-pdf me-1"></i> Poster</a> |
+                                <a href="https://github.com/kumarmanas/kumarmanas.github.io/tree/main/papers/Cot-TL/presentation.pdf" target="_blank"><i class="fas fa-file-powerpoint me-1"></i> Presentation</a>
+                            </p>
                         </div>
                     </div>
                     <div class="card publication-card">
@@ -243,6 +247,10 @@
                             <h5 class="card-title"><a href="https://ieeexplore.ieee.org/abstract/document/10588650" target="_blank">TR2MTL: LLM-based Framework for Metric Temporal Logic Formalization of Traffic Rules</h5>
                             <p class="card-text text-muted">IEEE Intelligent Vehicles Symposium (2024)</p>
                             <p class="card-text">Kumar Manas, Stefan Zwicklbauer, and Adrian Paschke</p>
+                            <p class="card-text">
+                                <a href="https://github.com/kumarmanas/kumarmanas.github.io/tree/main/papers/TR2MTL/poster.pdf" target="_blank"><i class="fas fa-file-pdf me-1"></i> Poster</a> |
+                                <a href="https://github.com/kumarmanas/kumarmanas.github.io/tree/main/papers/TR2MTL/presentation.pdf" target="_blank"><i class="fas fa-file-powerpoint me-1"></i> Presentation</a>
+                            </p>
                         </div>
                     </div>
                     <div class="card publication-card">
@@ -250,6 +258,10 @@
                             <h5 class="card-title"><a href="https://ceur-ws.org/Vol-3437/paper4LPLR.pdf" target="_blank">Legal Compliance Checking of Autonomous Driving with Formalized Traffic Rule Exceptions</h5>
                             <p class="card-text text-muted">Workshop on Logic Programming and Legal Reasoning in International Conference on Logic Programming (ICLP) (2023)</p>
                             <p class="card-text">Kumar Manas, Stefan Zwicklbauer, and Adrian Paschke</p>
+                             <p class="card-text">
+                                <a href="https://github.com/kumarmanas/kumarmanas.github.io/tree/main/papers/Legal_Compliance_Checking_ICLP_2023/poster.pdf" target="_blank"><i class="fas fa-file-pdf me-1"></i> Poster</a> |
+                                <a href="https://github.com/kumarmanas/kumarmanas.github.io/tree/main/papers/Legal_Compliance_Checking_ICLP_2023/presentation.pdf" target="_blank"><i class="fas fa-file-powerpoint me-1"></i> Presentation</a>
+                            </p>
                         </div>
                     </div>
                     <div class="card publication-card">
@@ -257,6 +269,10 @@
                             <h5 class="card-title"><a href="https://link.springer.com/chapter/10.1007/978-3-031-45072-3_13" target="_blank">Semantic Role Assisted Natural Language Rule Formalization for Intelligent Vehicle</h5>
                             <p class="card-text text-muted">International Joint Conference on Rules and Reasoning (RuleML+RR)(2023)</p>
                             <p class="card-text">Kumar Manas and Adrian Paschke</p>
+                            <p class="card-text">
+                                <a href="https://github.com/kumarmanas/kumarmanas.github.io/tree/main/papers/Semantic_role_assisted_rule_translation/poster.pdf" target="_blank"><i class="fas fa-file-pdf me-1"></i> Poster</a> |
+                                <a href="https://github.com/kumarmanas/kumarmanas.github.io/tree/main/papers/Semantic_role_assisted_rule_translation/presentation.pdf" target="_blank"><i class="fas fa-file-powerpoint me-1"></i> Presentation</a>
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -305,18 +321,18 @@
     <footer>
         <div class="container">
             <div class="text-center">
-                <p>&copy; 2024 Kumar Manas. All Rights Reserved.</p>
+                <p>© 2024 Kumar Manas. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    
+
     <!-- Interactive Demo Component -->
     <script type="text/babel">
         const InteractiveDemo = () => {
             const [activeSection, setActiveSection] = React.useState('input');
-            
+
             const sections = {
 
                 input: {
@@ -344,11 +360,11 @@
             return (
                 <div className="interactive-demo">
                     <h3 className="mb-4">Making Traffic Rules and robot instruction Machine-Readable: From Natural Language to (Formal) Logic</h3>
-                    
+
                     <div className="row">
                         {Object.entries(sections).map(([key, section], index) => (
                             <div key={key} className="col-md-4">
-                                <div 
+                                <div
                                     className={`demo-card ${activeSection === key ? 'active' : ''}`}
                                     onClick={() => setActiveSection(key)}
                                 >
@@ -366,7 +382,7 @@
                                 <p className="p-3 bg-white rounded border">{sections.input.example}</p>
                             </div>
                         )}
-                        
+
                         {activeSection === 'formalization' && (
                             <div>
                                 <h5>AI-Powered Translation:</h5>
@@ -375,14 +391,14 @@
                                 </code>
                             </div>
                         )}
-                        
+
                         {activeSection === 'application' && (
                             <div>
                                 <h5>Use Cases:</h5>
                                 <ul className="list-unstyled">
                                     {sections.application.useCases.map((useCase, index) => (
                                         <li key={index} className="mb-2">
-                                            <i className="fas fa-check-circle text-success me-2"></i>
+                                            <i class="fas fa-check-circle text-success me-2"></i>
                                             {useCase}
                                         </li>
                                     ))}
