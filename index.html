@@ -11,102 +11,33 @@
     <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lucide@latest"></script>
-    
     <style>
-        :root {
-            --primary-color: #0056b3;
-            --secondary-color: #004494;
-            --accent-color: #e9ecef;
-            --text-color: #343a40;
-            --light-color: #f8f9fa;
-            --dark-color: #343a40;
-            --border-radius: 8px;
-            --box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            --transition: all 0.3s ease;
-        }
-
         body {
             font-family: 'Inter', Arial, sans-serif;
             line-height: 1.6;
-            color: var(--text-color);
-            scroll-behavior: smooth;
-            overflow-x: hidden;
         }
 
         .navbar {
-            background-color: rgba(52, 58, 64, 0.95) !important;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            transition: var(--transition);
-            padding: 12px 0;
-        }
-
-        .navbar.scrolled {
-            padding: 8px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
         .navbar-brand {
-            font-weight: 700;
-            font-size: 1.3rem;
-            letter-spacing: -0.5px;
-        }
-
-        .navbar .nav-link {
-            position: relative;
-            margin: 0 5px;
-            font-weight: 500;
-            transition: var(--transition);
-        }
-
-        .navbar .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: white;
-            transition: width 0.3s;
-        }
-
-        .navbar .nav-link:hover::after {
-            width: 100%;
+            font-weight: bold;
         }
 
         .hero-section {
-            padding: 9rem 0 6rem;
+            padding: 6rem 0;
             background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 60%;
-            height: 100%;
-            background-image: radial-gradient(rgba(0,86,179,0.05) 1px, transparent 1px);
-            background-size: 20px 20px;
-            z-index: 0;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
         }
 
         .section {
-            padding: 6rem 0;
+            padding: 5rem 0;
         }
 
         .section-title {
             margin-bottom: 3rem;
             position: relative;
-            padding-bottom: 1.2rem;
-            font-weight: 700;
-            font-size: 2.2rem;
+            padding-bottom: 1rem;
         }
 
         .section-title::after {
@@ -114,319 +45,89 @@
             position: absolute;
             bottom: 0;
             left: 0;
-            width: 60px;
-            height: 4px;
-            background: var(--primary-color);
-            border-radius: 2px;
-        }
-
-        .card {
-            border: none;
-            border-radius: var(--border-radius);
-            transition: var(--transition);
-            height: 100%;
+            width: 50px;
+            height: 3px;
+            background: #0056b3;
         }
 
         .publication-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s ease;
             margin-bottom: 1.5rem;
             border: none;
-            box-shadow: var(--box-shadow);
-            border-radius: var(--border-radius);
-            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
-        .publication-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-        }
-
-        .publication-card .card-title a {
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .publication-card .card-title a:hover {
-            color: var(--secondary-color);
-        }
-
-        .book-chapter {
-            border-left: 4px solid #ffc107;
-            background-color: rgba(255, 193, 7, 0.05);
-        }
+        publication-card:hover {
+			animation: bounce 0.5s;
+			box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+			filter: invert(1);
+		}
 
         .social-links a {
             color: #6c757d;
-            margin-right: 1.2rem;
+            margin-right: 1rem;
             font-size: 1.5rem;
-            transition: var(--transition);
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: rgba(108, 117, 125, 0.1);
+            transition: color 0.3s ease;
         }
 
         .social-links a:hover {
-            color: var(--primary-color);
-            background-color: rgba(0, 86, 179, 0.1);
-            transform: translateY(-3px);
+            color: #0056b3;
         }
 
         .cv-link {
             display: inline-block;
             padding: 0.8rem 1.5rem;
-            background: var(--primary-color);
+            background: #0056b3;
             color: white;
             text-decoration: none;
-            border-radius: var(--border-radius);
-            transition: var(--transition);
-            font-weight: 500;
-            border: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
         }
 
         .cv-link:hover {
-            background: var(--secondary-color);
+            background: #004494;
             transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0, 68, 148, 0.2);
             color: white;
         }
 
-        .research-card {
-            padding: 25px;
-            height: 100%;
-        }
-
-        .research-card .card-icon {
-            background-color: rgba(0, 86, 179, 0.1);
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-            color: var(--primary-color);
-            font-size: 1.5rem;
-        }
-
         .research-image {
-            border-radius: var(--border-radius);
+            border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
 
         footer {
-            background: var(--dark-color);
+            background: #343a40;
             color: #fff;
-            padding: 3rem 0 2rem;
+            padding: 2rem 0;
         }
 
-        footer a {
-            color: rgba(255, 255, 255, 0.7);
-            transition: var(--transition);
-        }
-
-        footer a:hover {
-            color: white;
-        }
-
-        .back-to-top {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 45px;
-            height: 45px;
-            background: var(--primary-color);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            z-index: 99;
-            opacity: 0;
-            visibility: hidden;
-            transition: var(--transition);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        .back-to-top.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .back-to-top:hover {
-            background: var(--secondary-color);
-            transform: translateY(-3px);
-        }
-
-        /* Interactive Demo styles */
+        /* Add styles for interactive demo */
         .interactive-demo {
             background: white;
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
-            margin-bottom: 2.5rem;
-            padding: 2rem;
-            transition: var(--transition);
-        }
-
-        .interactive-demo:hover {
-            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            padding: 1.5rem;
         }
 
         .demo-card {
             background: white;
             border: 1px solid #e5e7eb;
-            border-radius: var(--border-radius);
-            padding: 1.5rem;
+            border-radius: 8px;
+            padding: 1rem;
             margin-bottom: 1rem;
             cursor: pointer;
-            transition: var(--transition);
-            height: 100%;
+            transition: all 0.3s ease;
         }
 
         .demo-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
         .demo-card.active {
-            border-color: var(--primary-color);
+            border-color: #0056b3;
             box-shadow: 0 0 0 2px rgba(0,86,179,0.2);
-        }
-
-        .demo-card h4 {
-            color: var(--primary-color);
-            font-weight: 600;
-            margin-bottom: 0.8rem;
-        }
-
-        .progress-indicator {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 2rem 0;
-        }
-
-        .progress-dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background-color: #dee2e6;
-            margin: 0 5px;
-            transition: var(--transition);
-        }
-
-        .progress-dot.active {
-            background-color: var(--primary-color);
-            transform: scale(1.3);
-        }
-
-        .progress-line {
-            height: 2px;
-            width: 50px;
-            background-color: #dee2e6;
-        }
-
-        .progress-line.active {
-            background-color: var(--primary-color);
-        }
-
-        /* Animation classes */
-        .fade-in {
-            animation: fadeIn 1s ease-in-out;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 991px) {
-            .hero-section {
-                padding: 8rem 0 5rem;
-            }
-            .section {
-                padding: 4rem 0;
-            }
-        }
-
-        @media (max-width: 767px) {
-            .hero-section {
-                padding: 7rem 0 4rem;
-            }
-            .section-title {
-                font-size: 1.8rem;
-            }
-            .social-links a {
-                margin-right: 0.8rem;
-            }
-        }
-
-        /* Publication tag styles */
-        .pub-tag {
-            display: inline-block;
-            padding: 0.35rem 0.7rem;
-            border-radius: 30px;
-            font-size: 0.75rem;
-            font-weight: 500;
-            margin-right: 0.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .pub-tag.book {
-            background-color: rgba(255, 193, 7, 0.15);
-            color: #c29000;
-        }
-
-        .pub-tag.conference {
-            background-color: rgba(13, 110, 253, 0.15);
-            color: #0a58ca;
-        }
-
-        .pub-tag.journal {
-            background-color: rgba(25, 135, 84, 0.15);
-            color: #157254;
-        }
-
-        .pub-tag.workshop {
-            background-color: rgba(111, 66, 193, 0.15);
-            color: #563d7c;
-        }
-
-        /* Profile image styles */
-        .profile-image-container {
-            position: relative;
-            display: inline-block;
-            border-radius: 50%;
-            padding: 5px;
-            background: linear-gradient(145deg, #0056b3, #3498db);
-            box-shadow: 0 6px 16px rgba(0, 86, 179, 0.2);
-        }
-
-        .profile-image {
-            border-radius: 50%;
-            border: 4px solid white;
-            transition: var(--transition);
-        }
-        
-        /* Year divider for publications */
-        .year-divider {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            margin-top: 2rem;
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid rgba(0, 86, 179, 0.2);
-        }
-        
-        .year-divider:first-of-type {
-            margin-top: 0;
         }
     </style>
 </head>
@@ -542,6 +243,13 @@
 								<a href="https://github.com/kumarmanas/kumarmanas.github.io/raw/main/papers/Cot-TL/IROS_poster.pdf" target="_blank"><i class="fas fa-file-pdf me-1"></i> Poster</a> |
 								<a href="https://github.com/kumarmanas/kumarmanas.github.io/raw/main/papers/Cot-TL/Cot-TL_Presentation.pptx" target="_blank"><i class="fas fa-file-powerpoint me-1"></i> Presentation</a>
 							</p>
+						</div>
+					</div>
+					<div class="card publication-card">
+						<div class="card-body">
+							<h5 class="card-title"><a href=https://link.springer.com/chapter/10.1007/978-3-658-44781-6_14" target="_blank">Optimierung der Entscheidungsfindung in autonomen Fahrsystemen mit neuro-symbolischem Wissen</a></h5>
+							<p class="card-text text-muted">Book Title: Hybride KI mit Machine Learning und Knowledge Graphs</p>
+							<p class="card-text">Ya Wang*, Kumar Manas*, and Adrian Paschkee</p>
 						</div>
 					</div>
 					<div class="card publication-card">
