@@ -11,9 +11,7 @@
     <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lucide@latest"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
         :root {
             --primary-color: #0056b3;
@@ -433,97 +431,80 @@
     </style>
 </head>
 <body>
-    <!-- Back to top button -->
-    <a href="#" class="back-to-top" id="backToTop">
-        <i class="fas fa-arrow-up"></i>
-    </a>
-
-    <!-- Navbar with improved styling -->
+    <!-- Navbar remains unchanged -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
             <a class="navbar-brand" href="#">Kumar Manas</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="pub-tag workshop">Workshop</span>
-                            </div>
-                            <p class="card-text text-muted">Workshop on Logic Programming and Legal Reasoning in International Conference on Logic Programming (ICLP) (2023)</p>
-                            <p class="card-text">Kumar Manas, Stefan Zwicklbauer, and Adrian Paschke</p>
-                        </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#research">Research</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#publications">Publications</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#patents">Patents</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero section remains unchanged -->
+    <section class="hero-section" style="margin-top: 56px;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <h1 class="display-4 mb-4">Kumar Manas</h1>
+                    <p class="lead mb-4">PhD Student in Mathematics & Computer Science at Freie Universität Berlin</p>
+                    <p class="mb-4">Specializing in Knowledge Formalization, Trajectory Prediction and Planning for Autonomous Agents</p>
+                    <div class="social-links">
+                        <a href="https://scholar.google.com/citations?user=JSIePEAAAAAJ&hl=en"><i class="fas fa-graduation-cap"></i></a>
+                        <a href="mailto:kumar.manas@continental.com"><i class="fas fa-envelope"></i></a>
+                        <a href="https://github.com/kumarmanas" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/kumarmanas27" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="Curriculum_Vitae_Manas_Kumar.pdf" class="cv-link ms-3">Download CV</a>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Patents section with improved styling -->
-    <section id="patents" class="section bg-light">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Patents</h2>
-            <div class="card publication-card" data-aos="fade-up" data-aos-delay="100">
-                <div class="card-body">
-                    <h5 class="card-title">
-                        <a href="https://patents.google.com/patent/EP4332824A1" target="_blank">
-                            System and Method for Translating Natural Language Traffic Rules into Formal Logic for Autonomous Moving Vehicles
-                        </a>
-                    </h5>
-                    <p class="card-text text-muted">EU Patent No. EP4332824A1</p>
-                    <p class="card-text">Daniel Bär, Raffael Schön, Stefan Zwicklbauer, and Manas Kumar</p>
-                    <p class="card-text">
-                        <a href="https://patents.google.com/patent/EP4332824A1" target="_blank" class="me-3">
-                            <i class="fas fa-external-link-alt me-1"></i> View Patent
-                        </a>
-                    </p>
+                <div class="col-md-4 text-center">
+                    <img src="profile.png" alt="Kumar Manas" class="img-fluid rounded-circle shadow" style="width: 160px; height: 170px;">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact section with improved styling -->
-    <section id="contact" class="section">
+    <section id="about" class="section bg-light">
         <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Contact</h2>
+            <h2 class="section-title">About Me</h2>
             <div class="row">
-                <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="card shadow-sm h-100">
+                <div class="col-lg-8">
+                    <p class="lead">I am enrolled in joint PhD program at Freie Universität Berlin and Continental Automotive, supervised by Prof. Adrian Paschke. I am specializing in the intersection of artificial intelligence and autonomous systems.</p>
+                    <p>My research is dedicated to developing innovative methods for formalizing traffic rules and integrating them into autonomous driving systems. Additionally, I work as a research scientist at Continental Automotive, where I focus on translating these theoretical frameworks into practical applications.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="research" class="section">
+        <div class="container">
+            <h2 class="section-title">Current Research</h2>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="card h-100 publication-card">
+                         <!-- <img src="/api/placeholder/400/300" class="card-img-top research-image" alt="Autonomous Driving"> -->
                         <div class="card-body">
-                            <h5 class="card-title mb-4">Get in touch</h5>
-                            <ul class="list-unstyled">
-                                <li class="mb-3 d-flex align-items-center">
-                                    <div class="me-3 text-primary">
-                                        <i class="fas fa-envelope"></i>
-                                    </div>
-                                    <div>
-                                        <a href="mailto:kumar.manas@fu-berlin.de" class="text-decoration-none">kumar.manas@fu-berlin.de</a>
-                                    </div>
-                                </li>
-                                <li class="mb-3 d-flex align-items-center">
-                                    <div class="me-3 text-primary">
-                                        <i class="fab fa-github"></i>
-                                    </div>
-                                    <div>
-                                        <a href="https://github.com/kumarmanas" target="_blank" class="text-decoration-none">github.com/kumarmanas</a>
-                                    </div>
-                                </li>
-                                <li class="mb-3 d-flex align-items-center">
-                                    <div class="me-3 text-primary">
-                                        <i class="fab fa-linkedin"></i>
-                                    </div>
-                                    <div>
-                                        <a href="https://www.linkedin.com/in/kumarmanas27" target="_blank" class="text-decoration-none">linkedin.com/in/kumarmanas27</a>
-                                    </div>
-                                </li>
-                            </ul>
+                            <h5 class="card-title">Trajectory Prediction with Rules and Uncertainty</h5>
+                            <p class="card-text">Working towards integrating traffic rules into the trajectory prediction module in a implicit manner. Alongside we are improving uncertainty quantification in the prediction.</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
-                    <div class="card shadow-sm h-100">
+                <div class="col-md-6">
+                    <div class="card h-100 publication-card">
+                        <!-- <img src="/api/placeholder/400/300" class="card-img-top research-image" alt="Autonomous Driving"> -->
                         <div class="card-body">
-                            <h5 class="card-title mb-4">Academic Affiliations</h5>
-                            <p><strong>Freie Universität Berlin</strong></p>
-                            <p class="mb-4">Department of Mathematics and Computer Science</p>
-                            
-                            <p><strong>Continental Automotive</strong></p>
-                            <p>Research Scientist</p>
+                            <h5 class="card-title">Trajectory Planning with Rule Integration</h5>
+                            <p class="card-text">Algorithms for planning vehicle trajectories in complex traffic scenarios while adherring to the rules of the road.</p>
                         </div>
                     </div>
                 </div>
@@ -531,14 +512,116 @@
         </div>
     </section>
 
-    <footer class="bg-dark text-white">
+    <!-- Publications section with new interactive demo -->
+	
+	<section id="publications" class="section bg-light">
+		<div class="container">
+			<h2 class="section-title">Publications</h2>
+
+			<!-- Interactive Demo Card -->
+			<div class="row mb-4">
+				<div class="col-12">
+					<div class="card publication-card">
+						<div class="card-body">
+							<h5 class="card-title">Interactive Demonstration: Traffic Rule Formalization</h5>
+							<div id="demo-root"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Existing publication cards -->
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="card publication-card">
+						<div class="card-body">
+							<h5 class="card-title"><a href="https://ieeexplore.ieee.org/document/10801817" target="_blank">CoT-TL: Low-Resource Temporal Knowledge Representation of Planning Instructions Using Chain-of-Thought Reasoning</a></h5>
+							<p class="card-text text-muted">2024 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)</p>
+							<p class="card-text">Kumar Manas, Stefan Zwicklbauer, and Adrian Paschke</p>
+							<p class="card-text">
+								<a href="https://github.com/kumarmanas/kumarmanas.github.io/raw/main/papers/Cot-TL/IROS_poster.pdf" target="_blank"><i class="fas fa-file-pdf me-1"></i> Poster</a> |
+								<a href="https://github.com/kumarmanas/kumarmanas.github.io/raw/main/papers/Cot-TL/Cot-TL_Presentation.pptx" target="_blank"><i class="fas fa-file-powerpoint me-1"></i> Presentation</a>
+							</p>
+						</div>
+					</div>
+					<div class="card publication-card">
+						<div class="card-body">
+							<h5 class="card-title"><a href="https://ieeexplore.ieee.org/abstract/document/10588650" target="_blank">TR2MTL: LLM-based Framework for Metric Temporal Logic Formalization of Traffic Rules</a></h5>
+							<p class="card-text text-muted">IEEE Intelligent Vehicles Symposium (2024)</p>
+							<p class="card-text">Kumar Manas, Stefan Zwicklbauer, and Adrian Paschke</p>
+							<p class="card-text">
+								<a href="https://github.com/kumarmanas/kumarmanas.github.io/raw/main/papers/TR2MTL\IEEE_IV_Poster_Manas.pdf" target="_blank"><i class="fas fa-file-pdf me-1"></i> Poster</a> |
+							</p>
+						</div>
+					</div>
+					<div class="card publication-card">
+						<div class="card-body">
+							<h5 class="card-title"><a href="https://ceur-ws.org/Vol-3437/paper4LPLR.pdf" target="_blank">Legal Compliance Checking of Autonomous Driving with Formalized Traffic Rule Exceptions</a></h5>
+							<p class="card-text text-muted">Workshop on Logic Programming and Legal Reasoning in International Conference on Logic Programming (ICLP) (2023)</p>
+							<p class="card-text">Kumar Manas, Stefan Zwicklbauer, and Adrian Paschke</p>
+						</div>
+					</div>
+					<div class="card publication-card">
+						<div class="card-body">
+							<h5 class="card-title"><a href="https://link.springer.com/chapter/10.1007/978-3-031-45072-3_13" target="_blank">Semantic Role Assisted Natural Language Rule Formalization for Intelligent Vehicle</a></h5>
+							<p class="card-text text-muted">International Joint Conference on Rules and Reasoning (RuleML+RR) (2023)</p>
+							<p class="card-text">Kumar Manas and Adrian Paschke</p>
+							<p class="card-text">
+								<a href="https://github.com/kumarmanas/kumarmanas.github.io/raw/main/papers/Semantic_role_assisted_rule_translation\Paper_Presentation.pdf target="_blank"><i class="fas fa-file-powerpoint me-1"></i> Presentation</a>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+    <section id="patents" class="section">
+        <div class="container">
+            <h2 class="section-title">Patents</h2>
+            <div class="card publication-card">
+                <div class="card-body">
+                    <h5 class="card-title"><a href="https://patents.google.com/patent/EP4332824A1" target="_blank">System and method for translating natural language traffic rules into formal logic for autonomous moving vehicles</h5>
+                    <p class="card-text text-muted">EU Patent No. EP4332824A1</p>
+                    <p class="card-text">Daniel Bär, Raffael schön, Stefan Zwicklbauer, and Manas Kumar</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">Contact</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="lead">Get in touch</p>
+                    <ul class="list-unstyled">
+                        <li class="mb-3">
+                            <i class="fas fa-envelope me-2"></i>
+                            <a href="mailto:kumar.manas@fu-berlin.de">kumar.manas@fu-berlin.de</a>
+                        </li>
+                        <li class="mb-3">
+                            <i class="fab fa-github me-2"></i>
+                            <a href="https://github.com/kumarmanas" target="_blank">github.com/kumarmanas</a>
+                        </li>
+                        <li class="mb-3">
+                            <i class="fab fa-linkedin me-2"></i>
+                            <a href="https://www.linkedin.com/in/kumarmanas27" target="_blank">linkedin.com/in/kumarmanas27</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
         <div class="container">
             <div class="text-center">
                 <p>© 2024 Kumar Manas. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
-
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
@@ -548,81 +631,72 @@
             const [activeSection, setActiveSection] = React.useState('input');
 
             const sections = {
+
                 input: {
-                    title: "Natural Language Input",
-                    content: "Traffic rules & robots instructions in plain English",
-                    example: '"Maintain safe distance of at least 2 car lengths when following another vehicle"'
-                },
-                formalization: {
-                    title: "Automated Formalization",
-                    content: "LLM converts natural language into precise formal logic or code",
-                    example: "G(distance(ego_vehicle, leading_vehicle) >= (2 * car_length))"
-                },
-                application: {
-                    title: "Real-World Applications",
-                    content: "Formal rules and constraints powered autonomous systems",
-                    useCases: [
+                      title: "Natural Language Input",
+                      content: "Traffic rules & robots instructions in plain English",
+                      example: '"Maintain safe distance of at least 2 car lengths when following another vehicle"'
+                    },
+                    formalization: {
+                      title: "Automated Formalization",
+                      content: "LLM converts natural language into precise formal logic or code",
+                      example: "G(distance(ego_vehicle, leading_vehicle) >= (2 * car_length))"
+                    },
+                    application: {
+                      title: "Real-World Applications",
+                      content: "Formal rules and constraints powered autonomous systems",
+                      useCases: [
                         "Prediction: Constraints for Predictors",
                         "Verification: Mathematically prove rule compliance",
                         "Planning: Generate safe driving trajectories",
                         "Monitoring: Real-time rule checking"
-                    ]
-                }
-            };
+                      ]
+                    }
+                  };
 
             return (
                 <div className="interactive-demo">
-                    <h3 className="mb-4">Making Traffic Rules and Robot Instructions Machine-Readable: From Natural Language to (Formal) Logic</h3>
+                    <h3 className="mb-4">Making Traffic Rules and robot instruction Machine-Readable: From Natural Language to (Formal) Logic</h3>
 
-                    <div className="row mb-4">
+                    <div className="row">
                         {Object.entries(sections).map(([key, section], index) => (
-                            <div key={key} className="col-md-4 mb-3">
+                            <div key={key} className="col-md-4">
                                 <div
                                     className={`demo-card ${activeSection === key ? 'active' : ''}`}
                                     onClick={() => setActiveSection(key)}
                                 >
                                     <h4>{section.title}</h4>
-                                    <p className="text-muted mb-0">{section.content}</p>
+                                    <p className="text-muted">{section.content}</p>
                                 </div>
                             </div>
                         ))}
                     </div>
 
-                    <div className="progress-indicator">
-                        <div className={`progress-dot ${activeSection === 'input' ? 'active' : ''}`}></div>
-                        <div className={`progress-line ${activeSection === 'formalization' || activeSection === 'application' ? 'active' : ''}`}></div>
-                        <div className={`progress-dot ${activeSection === 'formalization' ? 'active' : ''}`}></div>
-                        <div className={`progress-line ${activeSection === 'application' ? 'active' : ''}`}></div>
-                        <div className={`progress-dot ${activeSection === 'application' ? 'active' : ''}`}></div>
-                    </div>
-
-                    <div className="p-4 bg-light rounded shadow-sm">
+                    <div className="mt-4 p-3 bg-light rounded">
                         {activeSection === 'input' && (
                             <div>
-                                <h5 className="mb-3">Example Traffic Rule:</h5>
+                                <h5>Example Traffic Rule:</h5>
                                 <p className="p-3 bg-white rounded border">{sections.input.example}</p>
-                                <p className="mt-3 text-muted">System engineers can input traffic rules in natural language, eliminating the need for formal logic expertise.</p>
                             </div>
                         )}
 
                         {activeSection === 'formalization' && (
                             <div>
-                                <h5 className="mb-3">AI-Powered Translation:</h5>
+                                <h5>AI-Powered Translation:</h5>
                                 <code className="d-block p-3 bg-white rounded border">
                                     {sections.formalization.example}
                                 </code>
-                                <p className="mt-3 text-muted">Our framework automatically converts natural language into precise, mathematical representations that computers can understand and work with.</p>
                             </div>
                         )}
 
                         {activeSection === 'application' && (
                             <div>
-                                <h5 className="mb-3">Use Cases:</h5>
+                                <h5>Use Cases:</h5>
                                 <ul className="list-unstyled">
                                     {sections.application.useCases.map((useCase, index) => (
-                                        <li key={index} className="mb-3 d-flex">
-                                            <i className="fas fa-check-circle text-success me-3 mt-1"></i>
-                                            <span>{useCase}</span>
+                                        <li key={index} className="mb-2">
+                                            <i class="fas fa-check-circle text-success me-2"></i>
+                                            {useCase}
                                         </li>
                                     ))}
                                 </ul>
@@ -638,319 +712,5 @@
             document.getElementById('demo-root')
         );
     </script>
-    
-    <!-- Animation and interaction scripts -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Initialize AOS animation library
-            AOS.init({
-                duration: 800,
-                once: true
-            });
-            
-            // Back to top button functionality
-            const backToTopButton = document.getElementById('backToTop');
-            
-            window.addEventListener('scroll', function() {
-                if (window.pageYOffset > 300) {
-                    backToTopButton.classList.add('visible');
-                } else {
-                    backToTopButton.classList.remove('visible');
-                }
-                
-                // Navbar background change on scroll
-                const navbar = document.querySelector('.navbar');
-                if (window.scrollY > 50) {
-                    navbar.classList.add('scrolled');
-                } else {
-                    navbar.classList.remove('scrolled');
-                }
-            });
-            
-            backToTopButton.addEventListener('click', function(e) {
-                e.preventDefault();
-                window.scrollTo({top: 0, behavior: 'smooth'});
-            });
-            
-            // Smooth scrolling for navigation links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
-                    const targetId = this.getAttribute('href');
-                    if (targetId === '#') return;
-                    
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        const navbarHeight = document.querySelector('.navbar').offsetHeight;
-                        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
-                        
-                        window.scrollTo({
-                            top: targetPosition,
-                            behavior: 'smooth'
-                        });
-                        
-                        // Close mobile menu if open
-                        const navbarCollapse = document.querySelector('.navbar-collapse');
-                        if (navbarCollapse.classList.contains('show')) {
-                            navbarCollapse.classList.remove('show');
-                        }
-                    }
-                });
-            });
-        });
-    </script>
 </body>
-</html>navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#research">Research</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#demo">Demo</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#publications">Publications</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#patents">Patents</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero section with improved styling -->
-    <section class="hero-section" id="home">
-        <div class="container">
-            <div class="row align-items-center hero-content">
-                <div class="col-lg-8" data-aos="fade-right" data-aos-duration="1000">
-                    <h1 class="display-4 fw-bold mb-4">Kumar Manas</h1>
-                    <p class="lead mb-4 text-secondary">PhD Student in Mathematics & Computer Science at Freie Universität Berlin</p>
-                    <p class="mb-4">Specializing in Knowledge Formalization, Trajectory Prediction and Planning for Autonomous Agents</p>
-                    <div class="d-flex align-items-center mt-5">
-                        <div class="social-links">
-                            <a href="https://scholar.google.com/citations?user=JSIePEAAAAAJ&hl=en" target="_blank" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
-                            <a href="mailto:kumar.manas@continental.com" title="Email"><i class="fas fa-envelope"></i></a>
-                            <a href="https://github.com/kumarmanas" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-                            <a href="https://www.linkedin.com/in/kumarmanas27" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                        </div>
-                        <a href="Curriculum_Vitae_Manas_Kumar.pdf" class="cv-link ms-3" download>
-                            <i class="fas fa-file-download me-2"></i>Download CV
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-4 text-center" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
-                    <div class="profile-image-container">
-                        <img src="profile.png" alt="Kumar Manas" class="img-fluid profile-image" style="width: 220px; height: 220px;">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About section with improved styling -->
-    <section id="about" class="section bg-light">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">About Me</h2>
-            <div class="row">
-                <div class="col-lg-8" data-aos="fade-up" data-aos-delay="100">
-                    <p class="lead">I am enrolled in joint PhD program at Freie Universität Berlin and Continental Automotive, supervised by Prof. Adrian Paschke. I am specializing in the intersection of artificial intelligence and autonomous systems.</p>
-                    <p>My research is dedicated to developing innovative methods for formalizing traffic rules and integrating them into autonomous driving systems. Additionally, I work as a research scientist at Continental Automotive, where I focus on translating these theoretical frameworks into practical applications.</p>
-                    <p>With a background in both mathematics and computer science, I combine formal methods with modern AI approaches to create safer, more reliable autonomous systems that can understand and follow human-defined rules while navigating complex environments.</p>
-                </div>
-                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
-                    <div class="card shadow-sm">
-                        <div class="card-body">
-                            <h5 class="card-title mb-3">Education</h5>
-                            <div class="mb-3">
-                                <p class="mb-1 fw-bold">PhD in Mathematics & Computer Science</p>
-                                <p class="mb-0 text-muted">Freie Universität Berlin</p>
-                                <p class="small text-muted">2021 - Present</p>
-                            </div>
-                            <div>
-                                <p class="mb-1 fw-bold">Previous Degrees</p>
-                                <p class="small text-muted">Information available in my CV</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Research section with improved styling -->
-    <section id="research" class="section">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Current Research</h2>
-            <div class="row g-4">
-                <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="card publication-card research-card">
-                        <div class="card-icon">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                        <h5 class="card-title">Trajectory Prediction with Rules and Uncertainty</h5>
-                        <p class="card-text">Working towards integrating traffic rules into the trajectory prediction module in an implicit manner. Alongside we are improving uncertainty quantification in the prediction.</p>
-                        <ul class="list-unstyled mt-3">
-                            <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>Rule-aware prediction models</li>
-                            <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>Uncertainty quantification</li>
-                            <li><i class="fas fa-check-circle text-primary me-2"></i>Neuro-symbolic integration</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
-                    <div class="card publication-card research-card">
-                        <div class="card-icon">
-                            <i class="fas fa-road"></i>
-                        </div>
-                        <h5 class="card-title">Trajectory Planning with Rule Integration</h5>
-                        <p class="card-text">Algorithms for planning vehicle trajectories in complex traffic scenarios while adhering to the rules of the road.</p>
-                        <ul class="list-unstyled mt-3">
-                            <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>Formal verification of plans</li>
-                            <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>Multi-agent coordination</li>
-                            <li><i class="fas fa-check-circle text-primary me-2"></i>Safety-critical scenarios</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Interactive Demo section - Moved to its own section before publications -->
-    <section id="demo" class="section bg-light">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Interactive Demonstration</h2>
-            
-            <div class="row" data-aos="fade-up" data-aos-delay="100">
-                <div class="col-12">
-                    <div class="card publication-card">
-                        <div class="card-body">
-                            <h4 class="card-title mb-4">Traffic Rule Formalization</h4>
-                            <div id="demo-root"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Publications section with improved styling and reorganized by year -->
-    <section id="publications" class="section">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Publications</h2>
-
-            <!-- 2025 Publications -->
-            <div class="year-divider" data-aos="fade-up" data-aos-delay="100">2025</div>
-            
-            <!-- Book Chapter from 2025 -->
-            <div class="row">
-                <div class="col-lg-12" data-aos="fade-up" data-aos-delay="150">
-                    <div class="card publication-card book-chapter">
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between align-items-start mb-2">
-                                <h5 class="card-title">
-                                    <a href="https://doi.org/10.1007/978-3-658-44781-6_14" target="_blank">
-                                        Optimierung der Entscheidungsfindung in autonomen Fahrsystemen mit neuro-symbolischem Wissen
-                                    </a>
-                                </h5>
-                                <span class="pub-tag book">Book Chapter</span>
-                            </div>
-                            <p class="card-text text-muted">In: Hinkelmann K., Hoppe T., Humm B.G. (eds) Hybride KI mit Machine Learning und Knowledge Graphs: Innovative Lösungen aus der Praxis. Springer, Wiesbaden (2025)</p>
-                            <p class="card-text">Wang, Ya; Manas, Kumar; Paschke, Adrian</p>
-                            <p class="card-text">
-                                <a href="https://doi.org/10.1007/978-3-658-44781-6_14" target="_blank" class="me-3">
-                                    <i class="fas fa-external-link-alt me-1"></i> DOI: 10.1007/978-3-658-44781-6_14
-                                </a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 2024 Publications -->
-            <div class="year-divider" data-aos="fade-up" data-aos-delay="200">2024</div>
-            
-            <!-- Conference Papers from 2024 -->
-            <div class="row">
-                <div class="col-lg-12" data-aos="fade-up" data-aos-delay="250">
-                    <div class="card publication-card">
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between align-items-start mb-2">
-                                <h5 class="card-title">
-                                    <a href="https://ieeexplore.ieee.org/document/10801817" target="_blank">
-                                        CoT-TL: Low-Resource Temporal Knowledge Representation of Planning Instructions Using Chain-of-Thought Reasoning
-                                    </a>
-                                </h5>
-                                <span class="pub-tag conference">Conference</span>
-                            </div>
-                            <p class="card-text text-muted">2024 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)</p>
-                            <p class="card-text">Kumar Manas, Stefan Zwicklbauer, and Adrian Paschke</p>
-                            <p class="card-text">
-                                <a href="https://github.com/kumarmanas/kumarmanas.github.io/raw/main/papers/Cot-TL/IROS_poster.pdf" target="_blank" class="me-3">
-                                    <i class="fas fa-file-pdf me-1"></i> Poster
-                                </a>
-                                <a href="https://github.com/kumarmanas/kumarmanas.github.io/raw/main/papers/Cot-TL/Cot-TL_Presentation.pptx" target="_blank">
-                                    <i class="fas fa-file-powerpoint me-1"></i> Presentation
-                                </a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-12" data-aos="fade-up" data-aos-delay="300">
-                    <div class="card publication-card">
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between align-items-start mb-2">
-                                <h5 class="card-title">
-                                    <a href="https://ieeexplore.ieee.org/abstract/document/10588650" target="_blank">
-                                        TR2MTL: LLM-based Framework for Metric Temporal Logic Formalization of Traffic Rules
-                                    </a>
-                                </h5>
-                                <span class="pub-tag conference">Conference</span>
-                            </div>
-                            <p class="card-text text-muted">IEEE Intelligent Vehicles Symposium (2024)</p>
-                            <p class="card-text">Kumar Manas, Stefan Zwicklbauer, and Adrian Paschke</p>
-                            <p class="card-text">
-                                <a href="https://github.com/kumarmanas/kumarmanas.github.io/raw/main/papers/TR2MTL/IEEE_IV_Poster_Manas.pdf" target="_blank">
-                                    <i class="fas fa-file-pdf me-1"></i> Poster
-                                </a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 2023 Publications -->
-            <div class="year-divider" data-aos="fade-up" data-aos-delay="350">2023</div>
-            
-            <div class="row">
-                <!-- Conference Paper from 2023 -->
-                <div class="col-lg-12" data-aos="fade-up" data-aos-delay="400">
-                    <div class="card publication-card">
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between align-items-start mb-2">
-                                <h5 class="card-title">
-                                    <a href="https://link.springer.com/chapter/10.1007/978-3-031-45072-3_13" target="_blank">
-                                        Semantic Role Assisted Natural Language Rule Formalization for Intelligent Vehicle
-                                    </a>
-                                </h5>
-                                <span class="pub-tag conference">Conference</span>
-                            </div>
-                            <p class="card-text text-muted">International Joint Conference on Rules and Reasoning (RuleML+RR) (2023)</p>
-                            <p class="card-text">Kumar Manas and Adrian Paschke</p>
-                            <p class="card-text">
-                                <a href="https://github.com/kumarmanas/kumarmanas.github.io/raw/main/papers/Semantic_role_assisted_rule_translation/Paper_Presentation.pdf" target="_blank">
-                                    <i class="fas fa-file-powerpoint me-1"></i> Presentation
-                                </a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Workshop Paper from 2023 -->
-                <div class="col-lg-12" data-aos="fade-up" data-aos-delay="450">
-                    <div class="card publication-card">
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between align-items-start mb-2">
-                                <h5 class="card-title">
-                                    <a href="https://ceur-ws.org/Vol-3437/paper4LPLR.pdf" target="_blank">
-                                        Legal Compliance Checking of Autonomous Driving with Formalized Traffic Rule Exceptions
-                                    </a>
-                                </h5>
-                                <span class="
+</html>
