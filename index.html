@@ -573,7 +573,236 @@
                             <p class="card-text">Wang, Ya; Manas, Kumar; Paschke, Adrian</p>
                             <p class="card-text">
                                 <a href="https://doi.org/10.1007/978-3-658-44781-6_14" target="_blank" class="me-3">
-                                    <i class="fas fa-external-link-alt me-1"></i> DOI: 10.1007/978-3-658-44781-6_14
+                                    <i class="fas fa-external-link-alt me-1"></i> View Patent</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact section with improved styling -->
+    <section id="contact" class="section bg-light">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Contact</h2>
+            <div class="row">
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card shadow-sm h-100">
+                        <div class="card-body">
+                            <h5 class="card-title mb-4">Get in touch</h5>
+                            <ul class="list-unstyled">
+                                <li class="mb-3 d-flex align-items-center">
+                                    <div class="me-3 text-primary">
+                                        <i class="fas fa-envelope"></i>
+                                    </div>
+                                    <div>
+                                        <a href="mailto:kumar.manas@fu-berlin.de" class="text-decoration-none">kumar.manas@fu-berlin.de</a>
+                                    </div>
+                                </li>
+                                <li class="mb-3 d-flex align-items-center">
+                                    <div class="me-3 text-primary">
+                                        <i class="fab fa-github"></i>
+                                    </div>
+                                    <div>
+                                        <a href="https://github.com/kumarmanas" target="_blank" class="text-decoration-none">github.com/kumarmanas</a>
+                                    </div>
+                                </li>
+                                <li class="mb-3 d-flex align-items-center">
+                                    <div class="me-3 text-primary">
+                                        <i class="fab fa-linkedin"></i>
+                                    </div>
+                                    <div>
+                                        <a href="https://www.linkedin.com/in/kumarmanas27" target="_blank" class="text-decoration-none">linkedin.com/in/kumarmanas27</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card shadow-sm h-100">
+                        <div class="card-body">
+                            <h5 class="card-title mb-4">Academic Affiliations</h5>
+                            <p><strong>Freie Universität Berlin</strong></p>
+                            <p class="mb-4">Department of Mathematics and Computer Science</p>
+                            
+                            <p><strong>Continental Automotive</strong></p>
+                            <p>Research Scientist</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="text-center">
+                <p>© 2024 Kumar Manas. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Interactive Demo Component -->
+    <script type="text/babel">
+        const InteractiveDemo = () => {
+            const [activeSection, setActiveSection] = React.useState('input');
+
+            const sections = {
+                input: {
+                    title: "Natural Language Input",
+                    content: "Traffic rules & robots instructions in plain English",
+                    example: '"Maintain safe distance of at least 2 car lengths when following another vehicle"'
+                },
+                formalization: {
+                    title: "Automated Formalization",
+                    content: "LLM converts natural language into precise formal logic or code",
+                    example: "G(distance(ego_vehicle, leading_vehicle) >= (2 * car_length))"
+                },
+                application: {
+                    title: "Real-World Applications",
+                    content: "Formal rules and constraints powered autonomous systems",
+                    useCases: [
+                        "Prediction: Constraints for Predictors",
+                        "Verification: Mathematically prove rule compliance",
+                        "Planning: Generate safe driving trajectories",
+                        "Monitoring: Real-time rule checking"
+                    ]
+                }
+            };
+
+            return (
+                <div className="interactive-demo">
+                    <h3 className="mb-4">Making Traffic Rules and Robot Instructions Machine-Readable: From Natural Language to (Formal) Logic</h3>
+
+                    <div className="row mb-4">
+                        {Object.entries(sections).map(([key, section], index) => (
+                            <div key={key} className="col-md-4 mb-3">
+                                <div
+                                    className={`demo-card ${activeSection === key ? 'active' : ''}`}
+                                    onClick={() => setActiveSection(key)}
+                                >
+                                    <h4>{section.title}</h4>
+                                    <p className="text-muted mb-0">{section.content}</p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+
+                    <div className="progress-indicator">
+                        <div className={`progress-dot ${activeSection === 'input' ? 'active' : ''}`}></div>
+                        <div className={`progress-line ${activeSection === 'formalization' || activeSection === 'application' ? 'active' : ''}`}></div>
+                        <div className={`progress-dot ${activeSection === 'formalization' ? 'active' : ''}`}></div>
+                        <div className={`progress-line ${activeSection === 'application' ? 'active' : ''}`}></div>
+                        <div className={`progress-dot ${activeSection === 'application' ? 'active' : ''}`}></div>
+                    </div>
+
+                    <div className="p-4 bg-light rounded shadow-sm">
+                        {activeSection === 'input' && (
+                            <div>
+                                <h5 className="mb-3">Example Traffic Rule:</h5>
+                                <p className="p-3 bg-white rounded border">{sections.input.example}</p>
+                                <p className="mt-3 text-muted">System engineers can input traffic rules in natural language, eliminating the need for formal logic expertise.</p>
+                            </div>
+                        )}
+
+                        {activeSection === 'formalization' && (
+                            <div>
+                                <h5 className="mb-3">AI-Powered Translation:</h5>
+                                <code className="d-block p-3 bg-white rounded border">
+                                    {sections.formalization.example}
+                                </code>
+                                <p className="mt-3 text-muted">Our framework automatically converts natural language into precise, mathematical representations that computers can understand and work with.</p>
+                            </div>
+                        )}
+
+                        {activeSection === 'application' && (
+                            <div>
+                                <h5 className="mb-3">Use Cases:</h5>
+                                <ul className="list-unstyled">
+                                    {sections.application.useCases.map((useCase, index) => (
+                                        <li key={index} className="mb-3 d-flex">
+                                            <i className="fas fa-check-circle text-success me-3 mt-1"></i>
+                                            <span>{useCase}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        )}
+                    </div>
+                </div>
+            );
+        };
+
+        ReactDOM.render(
+            <InteractiveDemo />,
+            document.getElementById('demo-root')
+        );
+    </script>
+    
+    <!-- Animation and interaction scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize AOS animation library
+            AOS.init({
+                duration: 800,
+                once: true
+            });
+            
+            // Back to top button functionality
+            const backToTopButton = document.getElementById('backToTop');
+            
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.classList.add('visible');
+                } else {
+                    backToTopButton.classList.remove('visible');
+                }
+                
+                // Navbar background change on scroll
+                const navbar = document.querySelector('.navbar');
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+            
+            backToTopButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.scrollTo({top: 0, behavior: 'smooth'});
+            });
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        const navbarHeight = document.querySelector('.navbar').offsetHeight;
+                        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+                        
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Close mobile menu if open
+                        const navbarCollapse = document.querySelector('.navbar-collapse');
+                        if (navbarCollapse.classList.contains('show')) {
+                            navbarCollapse.classList.remove('show');
+                        }
+                    }
+                });
+            });
+        });
+    </script></i> DOI: 10.1007/978-3-658-44781-6_14
                                 </a>
                             </p>
                         </div>
@@ -670,18 +899,24 @@
         </div>
     </section>
 
+    <!-- Patents section with improved styling -->
     <section id="patents" class="section">
         <div class="container">
-            <h2 class="section-title">Patents</h2>
-            <div class="card publication-card">
+            <h2 class="section-title" data-aos="fade-up">Patents</h2>
+            <div class="card publication-card" data-aos="fade-up" data-aos-delay="100">
                 <div class="card-body">
-                    <h5 class="card-title"><a href="https://patents.google.com/patent/EP4332824A1" target="_blank">System and method for translating natural language traffic rules into formal logic for autonomous moving vehicles</h5>
+                    <h5 class="card-title">
+                        <a href="https://patents.google.com/patent/EP4332824A1" target="_blank">
+                            System and Method for Translating Natural Language Traffic Rules into Formal Logic for Autonomous Moving Vehicles
+                        </a>
+                    </h5>
                     <p class="card-text text-muted">EU Patent No. EP4332824A1</p>
-                    <p class="card-text">Daniel Bär, Raffael schön, Stefan Zwicklbauer, and Manas Kumar</p>
+                    <p class="card-text">Daniel Bär, Raffael Schön, Stefan Zwicklbauer, and Manas Kumar</p>
                 </div>
             </div>
         </div>
     </section>
+
 
     <section id="contact" class="section bg-light">
         <div class="container">
