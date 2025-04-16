@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHIFT: Spectral Heteroscedastic Informed Forecasting for Trajectories</title>
+    <link rel="stylesheet" href="static/css/bulma.min.css">
+    <link rel="stylesheet" href="static/css/custom.css">
+    <link rel="icon" href="static/images/favicon.ico">
+</head>
+<body>
+
+<!-- Header -->
+<section class="hero is-light is-medium">
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <h1 class="title is-1">SHIFT</h1>
+            <h2 class="subtitle is-4">Spectral Heteroscedastic Informed Forecasting for Trajectories</h2>
+            <p class="is-size-5">Uncertainty-Aware Trajectory Prediction via Rule-Regularized Heteroscedastic Deep Classification</p>
+            <br>
+            <p class="is-size-5"><strong>Authors:</strong> [Your Name(s)]</p>
+            <p class="is-size-5"><strong>Institution:</strong> [Your Institution]</p>
+            <br>
+            <a href="To be Updated="button is-link is-medium">Read the Paper</a>
+            <a href="https://github.com/kumarmanas/SHIFT" class="button is-dark is-medium">Code & Models</a>
+        </div>
+    </div>
+</section>
+
+<!-- Teaser Image -->
+<section class="section">
+    <div class="container has-text-centered">
+        <img src="static/images/teaser.png" alt="SHIFT Teaser Image" style="max-width: 80%; height: auto;">
+        <p class="subtitle is-6">SHIFT integrates uncertainty quantification with rule-based priors for robust trajectory prediction.</p>
+    </div>
+</section>
+
+<!-- Abstract -->
+<section class="section">
+    <div class="container">
+        <h2 class="title is-3">Abstract</h2>
+        <p>
+            SHIFT is a novel framework combining uncertainty modeling with informative priors derived from automated rule extraction. SHIFT reformulates trajectory prediction as a classification task and employs heteroscedastic spectral-normalized Gaussian processes to disentangle epistemic and aleatoric uncertainties. Informative priors are learned from natural language driving rules using a retrieval-augmented generation framework powered by a large language model. Extensive evaluations on the nuScenes dataset demonstrate that SHIFT outperforms state-of-the-art methods, particularly in complex scenarios such as intersections.
+        </p>
+    </div>
+</section>
+
+<!-- Methodology -->
+<section class="section">
+    <div class="container">
+        <h2 class="title is-3">Methodology</h2>
+        <img src="static/images/arch.png" alt="SHIFT Architecture" style="max-width: 100%; height: auto;">
+        <p>
+            SHIFT leverages a two-stage training process: first, encoding traffic rules as synthetic labels; second, regularizing real-world trajectory predictions with these learned priors. The model architecture integrates a spectral-normalized CNN backbone with a heteroscedastic Gaussian process output layer, enabling robust uncertainty quantification.
+        </p>
+    </div>
+</section>
+
+<!-- Demo -->
+<section class="section">
+    <div class="container has-text-centered">
+        <h2 class="title is-3">Demo</h2>
+        <img src="static/images/demo.gif" alt="SHIFT Demo" style="max-width: 80%; height: auto;">
+        <p class="subtitle is-6">SHIFT accurately predicts trajectories with calibrated uncertainty in dynamic urban environments.</p>
+    </div>
+</section>
+
+<!-- Results -->
+<section class="section">
+    <div class="container">
+        <h2 class="title is-3">Results</h2>
+        <p>
+            SHIFT achieves substantial improvements in uncertainty calibration and displacement metrics compared to baseline methods. It excels in low-data and cross-location scenarios, demonstrating strong generalization capabilities.
+        </p>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="content has-text-centered">
+        <p>
+            SHIFT project website template adapted from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>. Licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.
+        </p>
+    </div>
+</footer>
+
+<script src="static/js/scripts.js"></script>
+</body>
+</html>

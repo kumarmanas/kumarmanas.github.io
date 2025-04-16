@@ -1,0 +1,17 @@
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+.hero {
+    background-color: #f5f5f5;
+}
+
+.section {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+img {
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
