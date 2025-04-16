@@ -1,97 +1,407 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SHIFT: Spectral Heteroscedastic Informed Forecasting for Trajectories</title>
-    <link rel="stylesheet" href="static/css/bulma.min.css">
-    <link rel="stylesheet" href="static/css/custom.css">
-    <link rel="icon" href="static/images/favicon.ico">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SHIFT: Spectral Heteroscedastic Informed Forecasting for Trajectories</title>
+  <!-- Normalize CSS for consistency -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700" rel="stylesheet">
+  <!-- Favicon -->
+  <link rel="icon" href="static/images/favicon.ico">
+  
+  <!-- Include your teaser animation and main JS files -->
+  <script src="static/js/teaser-animation.js"></script>
+  <script src="static/js/main.js"></script>
+  
+  <style>
+    /* Basic Reset & Typography */
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #fff;
+      color: #333;
+      scroll-behavior: smooth;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    /* Navbar styling */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 20px 40px;
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .navbar .nav-links a,
+    .navbar .buttons a {
+      margin: 0 15px;
+      font-weight: 700;
+      color: #333;
+    }
+    .navbar .buttons a {
+      padding: 8px 16px;
+      border: 1px solid #333;
+      border-radius: 4px;
+      transition: background 0.3s;
+    }
+    .navbar .buttons a:hover {
+      background: #333;
+      color: #fff;
+    }
+    
+    /* Modified Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+      color: #fff;
+      position: relative;
+      padding: 120px 20px 60px;
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      margin: 0 auto 30px;
+    }
+    .hero-content h1 {
+      font-size: 4rem;
+      margin-bottom: 20px;
+      line-height: 1.2;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+      letter-spacing: 1px;
+    }
+    .hero-content p {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    }
+    
+    /* Teaser Animation Styling */
+    #teaser-container {
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      z-index: 2;
+    }
+    
+    .teaser-container {
+      width: 100%;
+    }
+    
+    .teaser-title {
+      font-size: 1.8rem;
+      color: #333;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    
+    .teaser-svg {
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+      display: block;
+    }
+    
+    .teaser-status {
+      text-align: center;
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-top: 15px;
+      color: #333;
+    }
+    
+    /* Section Styling */
+    section {
+      padding: 80px 40px;
+    }
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 2.5rem;
+      color: #222;
+    }
+    .content {
+      max-width: 900px;
+      margin: 0 auto;
+      line-height: 1.6;
+      font-size: 1.1rem;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+      margin: 0 auto;
+    }
+    /* Card for key features */
+    .card {
+      background: #f9f9f9;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 20px;
+      margin: 20px;
+    }
+    /* Table styling for results */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
+    table th,
+    table td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: center;
+    }
+    table thead {
+      background: #f1f1f1;
+    }
+    /* Footer */
+    .footer {
+      background: #222;
+      color: #fff;
+      padding: 40px;
+      text-align: center;
+    }
+    .footer a {
+      color: #fff;
+      margin: 0 10px;
+    }
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        padding: 15px;
+      }
+      .hero-content h1 {
+        font-size: 2.8rem;
+      }
+      .hero-content p {
+        font-size: 1rem;
+      }
+      #teaser-container {
+        padding: 10px;
+      }
+      .teaser-title {
+        font-size: 1.4rem;
+      }
+    }
+  </style>
 </head>
 <body>
-
-<!-- Header -->
-<section class="hero is-light is-medium">
-    <div class="hero-body">
-        <div class="container has-text-centered">
-            <h1 class="title is-1">SHIFT</h1>
-            <h2 class="subtitle is-4">Spectral Heteroscedastic Informed Forecasting for Trajectories</h2>
-            <p class="is-size-5">Uncertainty-Aware Trajectory Prediction via Rule-Regularized Heteroscedastic Deep Classification</p>
-            <br>
-            <p class="is-size-5"><strong>Authors:</strong> Kumar Manas<sup>1,2</sup>, Christian Schlauch<sup>2,3</sup>, Adrian Paschke<sup>1,4</sup>, Christian Wirth<sup>2</sup> and Nadja Klein<sup>3</sup></p>
-            <div class="content has-text-left" style="max-width: 800px; margin: 0 auto;">
-                <p class="is-size-6">
-                    <sup>1</sup>Department of Mathematics and Computer Science, Freie Universität Berlin.<br>
-                    <sup>2</sup>Continental Automotive Technologies GmbH, AI Lab Berlin.<br>
-                    <sup>3</sup>Karlsruhe Institute of Technology, Scientific Computing Center, Methods for Big Data.<br>
-                    <sup>4</sup>Fraunhofer Institute for Open Communication Systems, Berlin, Germany.<br>
-                    
-                </p>
-            </div>
-            <br>
-            <a href="#" class="button is-link is-medium">Read the Paper</a>
-            <a href="https://github.com/kumarmanas/SHIFT" class="button is-dark is-medium">Code & Models</a>
-        </div>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo"><strong>SHIFT</strong></div>
+    <div class="nav-links">
+      <a href="#abstract">Abstract</a>
+      <a href="#methodology">Method</a>
+      <a href="#demo">Visualization</a>
+      <a href="#results">Results</a>
     </div>
-</section>
-
-<!-- Teaser Image -->
-<section class="section">
-    <div class="container has-text-centered">
-        <img src="static/images/teaser.png" alt="SHIFT Teaser Image" style="max-width: 80%; height: auto;">
-        <p class="subtitle is-6">SHIFT integrates uncertainty quantification with rule-based priors for robust trajectory prediction.</p>
+    <div class="buttons">
+      <a href="#">Paper</a>
+      <a href="https://github.com/kumarmanas/SHIFT">Code &amp; Models</a>
     </div>
-</section>
+  </nav>
 
-<!-- Abstract -->
-<section class="section">
-    <div class="container">
-        <h2 class="title is-3">Abstract</h2>
-        <p>
-            SHIFT is a novel framework combining uncertainty modeling with informative priors derived from automated rule extraction. SHIFT reformulates trajectory prediction as a classification task and employs heteroscedastic spectral-normalized Gaussian processes to disentangle epistemic and aleatoric uncertainties. Informative priors are learned from natural language driving rules using a retrieval-augmented generation framework powered by a large language model. Extensive evaluations on the nuScenes dataset demonstrate that SHIFT outperforms state-of-the-art methods, particularly in complex scenarios such as intersections.
+  <!-- Hero Section with explicit image as fallback -->
+  <!-- Modified Hero Section with React Teaser -->
+  <header class="hero">
+    <div class="hero-content">
+      <h1>SHIFT</h1>
+      <p>Uncertainty-Aware Trajectory Prediction via Rule-Regularized Heteroscedastic Deep Classification</p>
+      <p><strong>Authors:</strong> Kumar Manas<sup>1</sup>, Christian Schlauch<sup>2,3</sup>, Adrian Paschke<sup>1,4</sup>, Christian Wirth<sup>2</sup> and Nadja Klein<sup>3</sup></p>
+      <div class="content has-text-left" style="max-width: 800px; margin: 0 auto;">
+        <p class="is-size-6">
+          <sup>1</sup>Department of Mathematics and Computer Science, Freie Universität Berlin.<br>
+          <sup>2</sup>Continental Automotive Technologies GmbH, AI Lab Berlin.<br>
+          <sup>3</sup>Karlsruhe Institute of Technology<br>
+          <sup>4</sup>Fraunhofer Institute for Open Communication Systems, Berlin, Germany.<br>
         </p>
+      </div>
+      
+      <div class="hero-buttons">
+        <a href="#">Read Paper</a>
+        <a href="https://github.com/kumarmanas/SHIFT">Code &amp; Models</a>
+      </div>
     </div>
-</section>
+    
+    <!-- Container for React Teaser Animation -->
+    <div id="teaser-container"></div>
+  </header>
+  <!-- Abstract -->
+  <section id="abstract">
+    <h2 class="section-title">Abstract</h2>
+    <div class="content">
+      <p>
+        SHIFT is a novel framework combining uncertainty modeling with informative priors derived from automated rule extraction. SHIFT reformulates trajectory prediction as a classification task and employs heteroscedastic spectral-normalized Gaussian processes to disentangle epistemic and aleatoric uncertainties. Informative priors are learned from natural language driving rules using a retrieval-augmented generation framework powered by a large language model. Extensive evaluations on the nuScenes dataset demonstrate that SHIFT outperforms state-of-the-art methods, particularly in complex scenarios such as intersections.
+      </p>
+    </div>
+  </section>
 
-<!-- Methodology -->
-<section class="section">
-    <div class="container">
-        <h2 class="title is-3">Methodology</h2>
-        <img src="static/images/arch.png" alt="SHIFT Architecture" style="max-width: 100%; height: auto;">
-        <p>
-            SHIFT leverages a two-stage training process: first, encoding traffic rules as synthetic labels; second, regularizing real-world trajectory predictions with these learned priors. The model architecture integrates a spectral-normalized CNN backbone with a heteroscedastic Gaussian process output layer, enabling robust uncertainty quantification.
+  <!-- Methodology -->
+  <section id="methodology">
+    <h2 class="section-title">Methodology</h2>
+    <div class="content">
+      <img src="static/images/arch.png" alt="SHIFT Architecture">
+      <p>
+        SHIFT leverages a two-stage training process: first, encoding traffic rules as synthetic labels; second, regularizing real-world trajectory predictions with these learned priors. The model architecture integrates a spectral-normalized CNN backbone with a heteroscedastic Gaussian process output layer, enabling robust uncertainty quantification.
+      </p>
+    </div>
+  </section>
+
+  <!-- Demo / Visualization -->
+  <section id="demo">
+    <h2 class="section-title">Visualization</h2>
+    <div class="content">
+      <img src="static/images/visual.png" alt="SHIFT Demo">
+      <p>
+        Qualitative Comparison of Trajectory Predictions. The first row displays predictions from SNGP with Rules as baseline, while the second row presents results from SHIFT. Each column represents a different scene. The target agent is highlighted with a black rectangle. The past trajectory (shown only for SHIFT) is also included for reference.
+      </p>
+    </div>
+  </section>
+
+  <!-- Results -->
+  <section id="results">
+    <h2 class="section-title">Results</h2>
+    <div class="content">
+      <p>
+        SHIFT achieves substantial improvements in uncertainty calibration and displacement metrics compared to baseline methods. It excels in low-data and cross-location scenarios, demonstrating strong generalization capabilities.
+      </p>
+      <button id="toggle-results">Show Detailed Results</button>
+      <div id="detailed-results" style="display: none;">
+        <table>
+          <thead>
+            <tr>
+              <th>Model</th>
+              <th>minADE₁ ↓</th>
+              <th>minADE₅ ↓</th>
+              <th>minFDE₁ ↓</th>
+              <th>NLL ↓</th>
+              <th>ECE ↓</th>
+              <th>RNK ↓</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>CoverNet</td>
+              <td>4.92 ± 0.15</td>
+              <td>2.34 ± 0.05</td>
+              <td>10.94 ± 0.27</td>
+              <td>3.47 ± 0.06</td>
+              <td>0.05 ± 0.02</td>
+              <td>15.55 ± 0.73</td>
+            </tr>
+            <tr>
+              <td>GVCL-Det</td>
+              <td>4.55 ± 0.11</td>
+              <td>2.26 ± 0.05</td>
+              <td>9.93 ± 0.39</td>
+              <td>3.60 ± 0.08</td>
+              <td>0.18 ± 0.02</td>
+              <td>14.88 ± 0.94</td>
+            </tr>
+            <tr>
+              <td>SNGP<sub>U</sub> (Without Rules)</td>
+              <td>4.53 ± 0.09</td>
+              <td>2.25 ± 0.04</td>
+              <td>10.31 ± 0.27</td>
+              <td>3.23 ± 0.01</td>
+              <td>0.03 ± 0.01</td>
+              <td>13.25 ± 0.19</td>
+            </tr>
+            <tr>
+              <td>SNGP (With Rules)</td>
+              <td>4.31 ± 0.02</td>
+              <td>2.17 ± 0.01</td>
+              <td>9.78 ± 0.05</td>
+              <td>3.15 ± 0.01</td>
+              <td>0.03 ± 0.01</td>
+              <td>11.93 ± 0.11</td>
+            </tr>
+            <tr style="background: #d4f7d4;">
+              <td><strong>SHIFT (Ours With Chained Prior)</strong></td>
+              <td><strong>4.11 ± 0.05</strong></td>
+              <td><strong>2.12 ± 0.01</strong></td>
+              <td>9.24 ± 0.12</td>
+              <td>3.16 ± 0.02</td>
+              <td><strong>0.02 ± 0.01</strong></td>
+              <td>11.85 ± 0.22</td>
+            </tr>
+            <tr style="background: #d4f7d4;">
+              <td><strong>SHIFT (Ours With Unified Prior)</strong></td>
+              <td>4.15 ± 0.04</td>
+              <td>2.13 ± 0.05</td>
+              <td><strong>9.23 ± 0.11</strong></td>
+              <td><strong>3.15 ± 0.03</strong></td>
+              <td><strong>0.02 ± 0.01</strong></td>
+              <td><strong>11.52 ± 0.45</strong></td>
+            </tr>
+          </tbody>
+        </table>
+        <p style="font-size: 0.9rem; text-align: center;">
+          <strong>Bold</strong> indicates best performance, <u>underlined</u> indicates second best. Lower is better for all metrics.
         </p>
+      </div>
     </div>
-</section>
+  </section>
 
-<!-- Demo -->
-<section class="section">
-    <div class="container has-text-centered">
-        <h2 class="title is-3">Demo</h2>
-        <img src="static/images/demo.gif" alt="SHIFT Demo" style="max-width: 80%; height: auto;">
-        <p class="subtitle is-6">SHIFT accurately predicts trajectories with calibrated uncertainty in dynamic urban environments.</p>
+  <!-- Citation -->
+  <section id="citation">
+    <h2 class="section-title">Citation</h2>
+    <div class="content">
+      <pre style="white-space: pre-wrap; font-family: 'Courier New', monospace; font-size: 0.85rem;">
+@inproceedings{manas2025shift,
+  title={Uncertainty-Aware Trajectory Prediction via Rule-Regularized Heteroscedastic Deep Classification},
+  author={Manas, Kumar and Schlauch, Christian and Paschke, Adrian and Wirth, Christian and Klein, Nadja},
+  booktitle={Proceedings of the Robotics: Science and Systems (RSS)},
+  year={2025}
+}
+      </pre>
     </div>
-</section>
+  </section>
 
-<!-- Results -->
-<section class="section">
-    <div class="container">
-        <h2 class="title is-3">Results</h2>
-        <p>
-            SHIFT achieves substantial improvements in uncertainty calibration and displacement metrics compared to baseline methods. It excels in low-data and cross-location scenarios, demonstrating strong generalization capabilities.
-        </p>
-    </div>
-</section>
+  <!-- Footer -->
+  <footer class="footer">
+    <p>
+      <strong>SHIFT</strong> project by Kumar Manas et al. | Website template adapted from 
+      <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>
+    </p>
+    <p>
+      <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
+      <a href="https://github.com/kumarmanas/SHIFT"><i class="fab fa-github"></i> GitHub</a>
+    </p>
+  </footer>
 
-<!-- Footer -->
-<footer class="footer">
-    <div class="content has-text-centered">
-        <p>
-            SHIFT project website template adapted from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>. Licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.
-        </p>
-    </div>
-</footer>
-
-<script src="static/js/scripts.js"></script>
+  <script>
+    // Toggle detailed results view
+    document.getElementById('toggle-results').addEventListener('click', function() {
+      var detailed = document.getElementById('detailed-results');
+      if (detailed.style.display === 'none' || detailed.style.display === '') {
+        detailed.style.display = 'block';
+        this.textContent = 'Hide Detailed Results';
+      } else {
+        detailed.style.display = 'none';
+        this.textContent = 'Show Detailed Results';
+      }
+    });
+  </script>
 </body>
 </html>
