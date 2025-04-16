@@ -75,7 +75,7 @@
     .hero-content {
       position: relative;
       z-index: 1;
-      max-width: 800px;
+      max-width: 900px;
       margin: 0 auto 30px;
     }
     .hero-content h1 {
@@ -86,7 +86,7 @@
       letter-spacing: 1px;
     }
     .hero-content p {
-      font-size: 1.2rem;
+      font-size: 1.5rem;
       margin-bottom: 20px;
       text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
     }
@@ -203,6 +203,60 @@
         font-size: 1.4rem;
       }
     }
+    
+    /* Enhanced Author and Affiliation styling */
+    .authors-container {
+      max-width: 600px;
+      margin: 1.5rem auto;
+    }
+    
+    .authors {
+      font-size: 1.5rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    }
+    
+    .author-name {
+      font-weight: 700;
+      position: relative;
+      padding: 0 2px;
+    }
+    
+    .affiliation-container {
+      background-color: rgba(0,0,0,0.6);
+      border-radius: 8px;
+      padding: 15px 20px;
+      margin-top: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    
+    .affiliation-heading {
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 0.9rem;
+      margin-bottom: 8px;
+      color: rgba(255,255,255,0.8);
+      border-bottom: 1px solid rgba(255,255,255,0.3);
+      padding-bottom: 5px;
+    }
+    
+    .affiliations {
+      font-size: 0.85rem;
+      text-align: left;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.9);
+    }
+    
+    .affiliation-item {
+      margin-bottom: 4px;
+      display: flex;
+    }
+    
+    .affiliation-number {
+      min-width: 25px;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
@@ -227,14 +281,37 @@
     <div class="hero-content">
       <h1>SHIFT</h1>
       <p>Uncertainty-Aware Trajectory Prediction via Rule-Regularized Heteroscedastic Deep Classification</p>
-      <p><strong>Authors:</strong> Kumar Manas<sup>1</sup>, Christian Schlauch<sup>2,3</sup>, Adrian Paschke<sup>1,4</sup>, Christian Wirth<sup>2</sup> and Nadja Klein<sup>3</sup></p>
-      <div class="content has-text-left" style="max-width: 800px; margin: 0 auto;">
-        <p class="is-size-6">
-          <sup>1</sup>Department of Mathematics and Computer Science, Freie Universität Berlin.<br>
-          <sup>2</sup>Continental Automotive Technologies GmbH, AI Lab Berlin.<br>
-          <sup>3</sup>Karlsruhe Institute of Technology<br>
-          <sup>4</sup>Fraunhofer Institute for Open Communication Systems, Berlin, Germany.<br>
-        </p>
+      
+      <div class="authors-container">
+        <div class="authors">
+          <span class="author-name">Kumar Manas<sup>1</sup></span>, 
+          <span class="author-name">Christian Schlauch<sup>2,3</sup></span>, 
+          <span class="author-name">Adrian Paschke<sup>1,4</sup></span>, 
+          <span class="author-name">Christian Wirth<sup>2</sup></span> and 
+          <span class="author-name">Nadja Klein<sup>3</sup></span>
+        </div>
+        
+        <div class="affiliation-container">
+          
+          <div class="affiliations">
+            <div class="affiliation-item">
+              <span class="affiliation-number"><sup>1</sup></span>
+              <span>Department of Mathematics and Computer Science, Freie Universität Berlin</span>
+            </div>
+            <div class="affiliation-item">
+              <span class="affiliation-number"><sup>2</sup></span>
+              <span>Continental Automotive Technologies GmbH, AI Lab Berlin</span>
+            </div>
+            <div class="affiliation-item">
+              <span class="affiliation-number"><sup>3</sup></span>
+              <span>Karlsruhe Institute of Technology</span>
+            </div>
+            <div class="affiliation-item">
+              <span class="affiliation-number"><sup>4</sup></span>
+              <span>Fraunhofer Institute for Open Communication Systems, Berlin, Germany</span>
+            </div>
+          </div>
+        </div>
       </div>
       
       <div class="hero-buttons">
