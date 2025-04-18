@@ -320,6 +320,26 @@
         margin-bottom: 10px;
       }
     }
+    
+    /* Citation box styling */
+    .citation-box {
+      background-color: #f8f9fa;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 20px 0;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      border-left: 4px solid #3498db;
+    }
+    
+    .citation-box pre {
+      margin: 0;
+      white-space: pre-wrap;
+      font-family: 'Courier New', monospace;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      color: #333;
+      overflow-x: auto;
+    }
   </style>
 </head>
 <body>
@@ -501,26 +521,28 @@
           </tbody>
         </table>
         <p style="font-size: 0.9rem; text-align: center;">
-          <strong>Bold</strong> indicates best performance, <u>underlined</u> indicates second best. Lower is better for all metrics.
+          <strong>Bold</strong> indicates best performance. Lower is better for all metrics.
         </p>
       </div>
     </div>
   </section>
 
-  <!-- Citation -->
-  <section id="citation">
-    <h2 class="section-title">Citation</h2>
-    <div class="content">
-      <pre style="white-space: pre-wrap; font-family: 'Courier New', monospace; font-size: 0.85rem;">
-@inproceedings{manas2025shift,
-  title={Uncertainty-Aware Trajectory Prediction via Rule-Regularized Heteroscedastic Deep Classification},
-  author={Manas, Kumar and Schlauch, Christian and Paschke, Adrian and Wirth, Christian and Klein, Nadja},
-  booktitle={Proceedings of the Robotics: Science and Systems (RSS)},
-  year={2025}
-}
-      </pre>
+<!-- Citation - Fixed alignment and styling -->
+<section id="citation">
+  <h2 class="section-title">Citation</h2>
+  <div class="content">
+    <p>Please use the following BibTeX entry to cite this work:</p>
+    <div class="citation-box">
+      <pre>@inproceedings{manas2025shift,
+  title     = {Uncertainty-Aware Trajectory Prediction via Rule-Regularized Heteroscedastic Deep Classification},
+  author    = {Manas, Kumar and Schlauch, Christian and Paschke, Adrian and Wirth, Christian and Klein, Nadja},
+  booktitle = {Proceedings of the Robotics: Science and Systems (RSS)},
+  year      = {2025}
+}</pre>
     </div>
-  </section>
+  </div>
+</section>
+
 
   <!-- Footer -->
   <footer class="footer">
