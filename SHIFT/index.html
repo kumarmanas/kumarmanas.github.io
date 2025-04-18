@@ -1,12 +1,18 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SHIFT: Spectral Heteroscedastic Informed Forecasting for Trajectories</title>
-  <!-- Normalize CSS for consistency -->
+  <!-- Normalize CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <!-- AOS Animations -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <!-- Favicon -->
   <link rel="icon" href="static/images/favicon.ico">
   
@@ -15,50 +21,123 @@
   <script src="static/js/main.js"></script>
   
   <style>
-    /* Basic Reset & Typography */
+    :root {
+      --primary: #3498db;
+      --secondary: #2c3e50;
+      --accent: #f39c12;
+      --light: #ecf0f1;
+      --dark: #2d3436;
+      --gradient-hero: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+      --card-bg: rgba(255,255,255,0.9);
+      --shadow-sm: 0 2px 8px rgba(0,0,0,0.1);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    
+    * { box-sizing: border-box; }
+    
     body {
       font-family: 'Montserrat', sans-serif;
       margin: 0;
       padding: 0;
       background: #fff;
-      color: #333;
+      color: var(--dark);
       scroll-behavior: smooth;
+      line-height: 1.6;
     }
+    
     a {
       text-decoration: none;
       color: inherit;
+      transition: color 0.3s;
     }
+    
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
     /* Navbar styling */
     .navbar {
       position: fixed;
       top: 0;
       width: 100%;
       padding: 20px 40px;
-      background: rgba(255, 255, 255, 0.9);
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: var(--shadow-sm);
       z-index: 1000;
       display: flex;
       justify-content: space-between;
       align-items: center;
-    }
-    .navbar .nav-links a,
-    .navbar .buttons a {
-      margin: 0 15px;
-      font-weight: 700;
-      color: #333;
-    }
-    .navbar .buttons a {
-      padding: 8px 16px;
-      border: 1px solid #333;
-      border-radius: 4px;
-      transition: background 0.3s;
-    }
-    .navbar .buttons a:hover {
-      background: #333;
-      color: #fff;
+      transition: background 0.3s, padding 0.3s;
     }
     
-    /* Modified Hero Section */
+    .navbar.scrolled {
+      padding: 12px 40px;
+      background: rgba(255, 255, 255, 0.98);
+    }
+    
+    .navbar .logo {
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: var(--primary);
+    }
+    
+    .navbar .nav-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+    
+    .navbar .nav-links a {
+      font-weight: 500;
+      position: relative;
+    }
+    
+    .navbar .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width 0.3s;
+    }
+    
+    .navbar .nav-links a:hover::after {
+      width: 100%;
+    }
+    
+    .navbar .buttons {
+      display: flex;
+      gap: 1rem;
+    }
+    
+    .navbar .buttons a {
+      padding: 8px 16px;
+      border-radius: 4px;
+      font-weight: 600;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    
+    .btn-paper {
+      background: var(--primary);
+      color: white;
+      border: 2px solid var(--primary);
+    }
+    
+    .btn-code {
+      background: var(--secondary);
+      color: white;
+      border: 2px solid var(--secondary);
+    }
+    
+    .navbar .buttons a:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* Hero Section */
     .hero {
       min-height: 100vh;
       display: flex;
@@ -66,7 +145,7 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+      background: var(--gradient-hero);
       color: #fff;
       position: relative;
       padding: 120px 20px 60px;
@@ -78,6 +157,7 @@
       max-width: 900px;
       margin: 0 auto 30px;
     }
+    
     .hero-content h1 {
       font-size: 4rem;
       margin-bottom: 20px;
@@ -85,123 +165,11 @@
       text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
       letter-spacing: 1px;
     }
+    
     .hero-content p {
       font-size: 1.5rem;
       margin-bottom: 20px;
       text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
-    }
-    
-    /* Teaser Animation Styling */
-    #teaser-container {
-      width: 100%;
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 20px;
-      background: rgba(255, 255, 255, 0.9);
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-      z-index: 2;
-    }
-    
-    .teaser-container {
-      width: 100%;
-    }
-    
-    .teaser-title {
-      font-size: 1.8rem;
-      color: #333;
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    
-    .teaser-svg {
-      width: 100%;
-      max-width: 600px;
-      margin: 0 auto;
-      display: block;
-    }
-    
-    .teaser-status {
-      text-align: center;
-      font-size: 1.2rem;
-      font-weight: bold;
-      margin-top: 15px;
-      color: #333;
-    }
-    
-    /* Section Styling */
-    section {
-      padding: 80px 40px;
-    }
-    .section-title {
-      text-align: center;
-      margin-bottom: 40px;
-      font-size: 2.5rem;
-      color: #222;
-    }
-    .content {
-      max-width: 900px;
-      margin: 0 auto;
-      line-height: 1.6;
-      font-size: 1.1rem;
-    }
-    img {
-      max-width: 100%;
-      display: block;
-      margin: 0 auto;
-    }
-    /* Card for key features */
-    .card {
-      background: #f9f9f9;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      padding: 20px;
-      margin: 20px;
-    }
-    /* Table styling for results */
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 20px 0;
-    }
-    table th,
-    table td {
-      border: 1px solid #ddd;
-      padding: 10px;
-      text-align: center;
-    }
-    table thead {
-      background: #f1f1f1;
-    }
-    /* Footer */
-    .footer {
-      background: #222;
-      color: #fff;
-      padding: 40px;
-      text-align: center;
-    }
-    .footer a {
-      color: #fff;
-      margin: 0 10px;
-    }
-    /* Responsive adjustments */
-    @media (max-width: 768px) {
-      .navbar {
-        flex-direction: column;
-        padding: 15px;
-      }
-      .hero-content h1 {
-        font-size: 2.8rem;
-      }
-      .hero-content p {
-        font-size: 1rem;
-      }
-      #teaser-container {
-        padding: 10px;
-      }
-      .teaser-title {
-        font-size: 1.4rem;
-      }
     }
     
     /* Enhanced Author and Affiliation styling */
@@ -211,7 +179,7 @@
     }
     
     .authors {
-      font-size: 1.5rem;
+      font-size: 1.3rem;
       font-weight: 500;
       margin-bottom: 0.5rem;
       text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
@@ -231,16 +199,6 @@
       box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     }
     
-    .affiliation-heading {
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      font-size: 0.9rem;
-      margin-bottom: 8px;
-      color: rgba(255,255,255,0.8);
-      border-bottom: 1px solid rgba(255,255,255,0.3);
-      padding-bottom: 5px;
-    }
-    
     .affiliations {
       font-size: 0.85rem;
       text-align: left;
@@ -253,12 +211,7 @@
       display: flex;
     }
     
-    .affiliation-number {
-      min-width: 25px;
-      font-weight: bold;
-    }
-    
-    /* Enhanced Hero Buttons Styling */
+    /* Hero Buttons */
     .hero-buttons {
       display: flex;
       justify-content: center;
@@ -282,15 +235,15 @@
     }
     
     .hero-buttons a:first-child {
-      background-color: #3498db;
+      background-color: var(--accent);
       color: white;
-      border: 2px solid #3498db;
+      border: 2px solid var(--accent);
     }
     
     .hero-buttons a:last-child {
-      background-color: #2c3e50;
+      background-color: var(--secondary);
       color: white;
-      border: 2px solid #2c3e50;
+      border: 2px solid var(--secondary);
     }
     
     .hero-buttons a:hover {
@@ -298,27 +251,148 @@
       box-shadow: 0 6px 12px rgba(0,0,0,0.3);
     }
     
-    .hero-buttons a:first-child:hover {
-      background-color: #2980b9;
-      border-color: #2980b9;
+    /* Intro Cards */
+    .intro-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      max-width: 1000px;
+      margin: 2rem auto 0;
+      padding: 0 1rem;
     }
     
-    .hero-buttons a:last-child:hover {
-      background-color: #1a252f;
-      border-color: #1a252f;
+    .intro-card {
+      background: var(--card-bg);
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: var(--shadow-md);
+      transition: transform 0.3s, box-shadow 0.3s;
     }
     
-    @media (max-width: 768px) {
-      .hero-buttons {
-        flex-direction: column;
-        align-items: center;
-      }
-      
-      .hero-buttons a {
-        width: 100%;
-        max-width: 280px;
-        margin-bottom: 10px;
-      }
+    .intro-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+    
+    .intro-card h3 {
+      margin-top: 0;
+      color: var(--secondary);
+      font-size: 1.25rem;
+    }
+    
+    .intro-card p {
+      margin: 0.5rem 0 0;
+      line-height: 1.5;
+      color: var(--dark);
+    }
+    
+    /* Teaser Container */
+    #teaser-container {
+      width: 100%;
+      max-width: 800px;
+      margin: 3rem auto 0;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      z-index: 2;
+    }
+    
+    /* Enhanced Teaser Animation Text Styling */
+    .teaser-title {
+      font-size: 1.8rem;
+      color: #222;
+      text-align: center;
+      margin-bottom: 20px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+    
+    .teaser-svg text {
+      font-family: 'Montserrat', sans-serif;
+    }
+    
+    .teaser-svg .animation-label {
+      filter: drop-shadow(0px 1px 2px rgba(0,0,0,0.3));
+    }
+    
+    .teaser-status {
+      text-align: center;
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-top: 15px;
+      color: #333;
+      background-color: rgba(240,240,240,0.5);
+      padding: 8px;
+      border-radius: 4px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    /* Section Styling */
+    section {
+      padding: 80px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    section:nth-child(even) {
+      background: var(--light);
+    }
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 2.5rem;
+      color: var(--secondary);
+      position: relative;
+    }
+    
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 4px;
+      margin: 0.5rem auto 0;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+    
+    .content {
+      max-width: 900px;
+      margin: 0 auto;
+      line-height: 1.6;
+      font-size: 1.1rem;
+    }
+    
+    /* Table styling for results */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      box-shadow: var(--shadow-sm);
+    }
+    
+    table th,
+    table td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: center;
+    }
+    
+    table thead {
+      background: #f1f1f1;
+    }
+    
+    table tr:nth-child(even) {
+      background: rgba(255,255,255,0.5);
+    }
+    
+    table tr:hover {
+      background: rgba(0,0,0,0.03);
+    }
+    
+    table tr.highlight {
+      background: #e8f6e8;
     }
     
     /* Citation box styling */
@@ -327,8 +401,8 @@
       border-radius: 8px;
       padding: 20px;
       margin: 20px 0;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      border-left: 4px solid #3498db;
+      box-shadow: var(--shadow-sm);
+      border-left: 4px solid var(--primary);
     }
     
     .citation-box pre {
@@ -340,30 +414,120 @@
       color: #333;
       overflow-x: auto;
     }
+    
+    /* Footer */
+    .footer {
+      background: var(--secondary);
+      color: #fff;
+      padding: 40px;
+      text-align: center;
+    }
+    
+    .footer a {
+      color: #fff;
+      margin: 0 10px;
+    }
+    
+    .footer p {
+      margin: 0.5rem 0;
+      font-size: 0.9rem;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        padding: 15px;
+      }
+      
+      .navbar .nav-links {
+        margin-top: 0.5rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      
+      .navbar .buttons {
+        margin-top: 0.5rem;
+      }
+      
+      .hero-content h1 {
+        font-size: 2.8rem;
+      }
+      
+      .hero-content p {
+        font-size: 1.1rem;
+      }
+      
+      .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .hero-buttons a {
+        width: 100%;
+        max-width: 280px;
+        margin-bottom: 10px;
+      }
+      
+      .intro-cards {
+        grid-template-columns: 1fr;
+      }
+      
+      section {
+        padding: 60px 20px;
+      }
+      
+      .section-title {
+        font-size: 2rem;
+      }
+      
+      table {
+        font-size: 0.9rem;
+      }
+    }
+    
+    /* Toggle Button */
+    .toggle-btn {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      font-weight: 600;
+      cursor: pointer;
+      margin: 20px auto;
+      display: block;
+      transition: background 0.3s;
+    }
+    
+    .toggle-btn:hover {
+      background: #2980b9;
+    }
   </style>
 </head>
-<body>
+
+<body onload="AOS.init({ once: true, duration: 800 });">
   <!-- Navbar -->
-  <nav class="navbar">
-    <div class="logo"><strong>SHIFT</strong></div>
+  <nav class="navbar" id="navbar">
+    <div class="logo"><i class="fas fa-arrow-right"></i> SHIFT</div>
     <div class="nav-links">
-      <a href="#abstract">Abstract</a>
-      <a href="#methodology">Method</a>
-      <a href="#demo">Visualization</a>
-      <a href="#results">Results</a>
+      <a href="#abstract"><i class="fas fa-info-circle"></i> Abstract</a>
+      <a href="#methodology"><i class="fas fa-cogs"></i> Method</a>
+      <a href="#demo"><i class="fas fa-chart-line"></i> Visualization</a>
+      <a href="#results"><i class="fas fa-poll"></i> Results</a>
+      <a href="#citation"><i class="fas fa-quote-right"></i> Citation</a>
     </div>
     <div class="buttons">
-      <a href="https://arxiv.org/abs/2504.13111">Paper</a>
-      <a href="https://github.com/kumarmanas/SHIFT">Code &amp; Models</a>
+      <a class="btn-paper" href="https://arxiv.org/abs/2504.13111"><i class="fas fa-file-pdf"></i> Paper</a>
+      <a class="btn-code" href="https://github.com/kumarmanas/SHIFT"><i class="fab fa-github"></i> Code</a>
     </div>
   </nav>
 
-  <!-- Hero Section with explicit image as fallback -->
-  <!-- Modified Hero Section with React Teaser -->
+  <!-- Hero Section -->
   <header class="hero">
-    <div class="hero-content">
+    <div class="hero-content" data-aos="fade-up">
       <h1>SHIFT</h1>
-      <p>Uncertainty-Aware Trajectory Prediction via Rule-Regularized Heteroscedastic Deep Classification</p>
+      <p>Uncertainty‑Aware Trajectory Prediction via Rule‑Regularized Heteroscedastic Deep Classification</p>
       
       <div class="authors-container">
         <div class="authors">
@@ -375,23 +539,18 @@
         </div>
         
         <div class="affiliation-container">
-          
           <div class="affiliations">
             <div class="affiliation-item">
-              <span class="affiliation-number"><sup>1</sup></span>
-              <span>Department of Mathematics and Computer Science, Freie Universität Berlin</span>
+              <span>1. Freie Universität Berlin</span>
             </div>
             <div class="affiliation-item">
-              <span class="affiliation-number"><sup>2</sup></span>
-              <span>Continental Automotive Technologies GmbH, AI Lab Berlin</span>
+              <span>2. Continental Automotive Technologies GmbH</span>
             </div>
             <div class="affiliation-item">
-              <span class="affiliation-number"><sup>3</sup></span>
-              <span>Karlsruhe Institute of Technology</span>
+              <span>3. Karlsruhe Institute of Technology</span>
             </div>
             <div class="affiliation-item">
-              <span class="affiliation-number"><sup>4</sup></span>
-              <span>Fraunhofer Institute for Open Communication Systems, Berlin, Germany</span>
+              <span>4. Fraunhofer Institute for Open Communication Systems, Berlin</span>
             </div>
           </div>
         </div>
@@ -399,57 +558,87 @@
       
       <div class="hero-buttons">
         <a href="https://arxiv.org/abs/2504.13111">
-          <i class="fas fa-file-alt mr-2"></i>Read Paper
+          <i class="fas fa-file-pdf"></i> Read Paper
         </a>
         <a href="https://github.com/kumarmanas/SHIFT">
-          <i class="fas fa-code mr-2"></i>Code &amp; Models Coming Soon
+          <i class="fab fa-github"></i> Code and Models (Coming Soon)
         </a>
       </div>
     </div>
     
+    <!-- Intro Cards -->
+    <div class="intro-cards">
+      <div class="intro-card" data-aos="fade-up" data-aos-delay="300">
+        <h3><i class="fas fa-bullhorn"></i> Headline</h3>
+        <p>SHIFT combines rule‑based priors and heteroscedastic uncertainty for safer trajectory forecasting.</p>
+      </div>
+      <div class="intro-card" data-aos="fade-up" data-aos-delay="400">
+        <h3><i class="fas fa-exclamation-triangle"></i> Challenge</h3>
+        <p>Current predictors are overconfident in rare or out‑of‑distribution scenarios, risking safety.</p>
+      </div>
+      <div class="intro-card" data-aos="fade-up" data-aos-delay="500">
+        <h3><i class="fas fa-eye"></i> Vision</h3>
+        <p>Integrate traffic rules as soft constraints with calibrated uncertainty models to build robust and compliant trajectory forecasts.</p>
+      </div>
+      <div class="intro-card" data-aos="fade-up" data-aos-delay="600">
+        <h3><i class="fas fa-lightbulb"></i> Core Innovations</h3>
+        <p>LLM‑driven rule labels, Spectral‑Normalized GP heads, and a two‑stage training pipeline.</p>
+      </div>
+    </div>
+    
     <!-- Container for React Teaser Animation -->
-    <div id="teaser-container"></div>
+    <div id="teaser-container" data-aos="fade-up" data-aos-delay="700"></div>
   </header>
-  <!-- Abstract -->
-  <section id="abstract">
-    <h2 class="section-title">Abstract</h2>
+
+  <!-- Abstract Section -->
+  <section id="abstract" data-aos="fade-up">
+    <h2 class="section-title"><i class="fas fa-info-circle"></i> Abstract</h2>
     <div class="content">
       <p>
-        SHIFT is a novel framework combining uncertainty modeling with informative priors derived from automated rule extraction. SHIFT reformulates trajectory prediction as a classification task and employs heteroscedastic spectral-normalized Gaussian processes to disentangle epistemic and aleatoric uncertainties. Informative priors are learned from natural language driving rules using a retrieval-augmented generation framework powered by a large language model. Extensive evaluations on the nuScenes dataset demonstrate that SHIFT outperforms state-of-the-art methods, particularly in complex scenarios such as intersections.
+        SHIFT is a novel framework combining uncertainty modeling with informative priors derived from automated rule extraction.
+        SHIFT reformulates trajectory prediction as a classification task and employs heteroscedastic spectral‑normalized Gaussian processes
+        to disentangle epistemic and aleatoric uncertainties. Informative priors are learned from natural language driving rules using
+        a retrieval‑augmented generation framework powered by a large language model. Extensive evaluations on the nuScenes dataset demonstrate
+        that SHIFT outperforms state‑of‑the‑art methods, particularly in complex scenarios such as intersections.
       </p>
     </div>
   </section>
 
-  <!-- Methodology -->
-  <section id="methodology">
-    <h2 class="section-title">Methodology</h2>
+  <!-- Methodology Section -->
+  <section id="methodology" data-aos="fade-up">
+    <h2 class="section-title"><i class="fas fa-cogs"></i> Methodology</h2>
     <div class="content">
-      <img src="static/images/arch.png" alt="SHIFT Architecture">
+      <img src="static/images/arch.png" alt="SHIFT Architecture" data-aos="fade-up" data-aos-delay="200">
       <p>
-        SHIFT leverages a two-stage training process: first, encoding traffic rules as synthetic labels; second, regularizing real-world trajectory predictions with these learned priors. The model architecture integrates a spectral-normalized CNN backbone with a heteroscedastic Gaussian process output layer, enabling robust uncertainty quantification.
+        SHIFT leverages a two‑stage training process: first, encoding traffic rules as synthetic labels; second, regularizing real‑world trajectory 
+        predictions with these learned priors. The model architecture integrates a spectral‑normalized CNN backbone with a heteroscedastic 
+        Gaussian process output layer, enabling robust uncertainty quantification.
       </p>
     </div>
   </section>
 
-  <!-- Demo / Visualization -->
-  <section id="demo">
-    <h2 class="section-title">Visualization</h2>
+  <!-- Demo/Visualization Section -->
+  <section id="demo" data-aos="fade-up">
+    <h2 class="section-title"><i class="fas fa-chart-line"></i> Visualization</h2>
     <div class="content">
-      <img src="static/images/visual.png" alt="SHIFT Demo">
+      <img src="static/images/visual.png" alt="SHIFT Demo" data-aos="fade-up" data-aos-delay="200">
       <p>
-        Qualitative Comparison of Trajectory Predictions. The first row displays predictions from SNGP with Rules as baseline, while the second row presents results from SHIFT. Each column represents a different scene. The target agent is highlighted with a black rectangle. The past trajectory (shown only for SHIFT) is also included for reference.
+        Qualitative Comparison of Trajectory Predictions. The first row displays predictions from SNGP with Rules as baseline, while the 
+        second row presents results from SHIFT. Each column represents a different scene. The target agent is highlighted with a black 
+        rectangle. The past trajectory (shown only for SHIFT) is also included for reference.
       </p>
     </div>
   </section>
 
-  <!-- Results -->
-  <section id="results">
-    <h2 class="section-title">Results</h2>
+  <!-- Results Section -->
+  <section id="results" data-aos="fade-up">
+    <h2 class="section-title"><i class="fas fa-poll"></i> Results</h2>
     <div class="content">
       <p>
-        SHIFT achieves substantial improvements in uncertainty calibration and displacement metrics compared to baseline methods. It excels in low-data and cross-location scenarios, demonstrating strong generalization capabilities.
+        SHIFT achieves substantial improvements in uncertainty calibration and displacement metrics compared to baseline methods.
+        It excels in low-data and cross-location scenarios, demonstrating strong generalization capabilities.
       </p>
-      <button id="toggle-results">Show Detailed Results</button>
+      <button class="toggle-btn" id="toggle-results"><i class="fas fa-table"></i> Show Detailed Results</button>
       <div id="detailed-results" style="display: none;">
         <table>
           <thead>
@@ -500,7 +689,7 @@
               <td>0.03 ± 0.01</td>
               <td>11.93 ± 0.11</td>
             </tr>
-            <tr style="background: #d4f7d4;">
+            <tr class="highlight">
               <td><strong>SHIFT (Ours With Chained Prior)</strong></td>
               <td><strong>4.11 ± 0.05</strong></td>
               <td><strong>2.12 ± 0.01</strong></td>
@@ -509,7 +698,7 @@
               <td><strong>0.02 ± 0.01</strong></td>
               <td>11.85 ± 0.22</td>
             </tr>
-            <tr style="background: #d4f7d4;">
+            <tr class="highlight">
               <td><strong>SHIFT (Ours With Unified Prior)</strong></td>
               <td>4.15 ± 0.04</td>
               <td>2.13 ± 0.05</td>
@@ -527,36 +716,43 @@
     </div>
   </section>
 
-<!-- Citation - Fixed alignment and styling -->
-<section id="citation">
-  <h2 class="section-title">Citation</h2>
-  <div class="content">
-    <p>Please use the following BibTeX entry to cite this work:</p>
-    <div class="citation-box">
-      <pre>@inproceedings{manas2025shift,
+  <!-- Citation Section -->
+  <section id="citation" data-aos="fade-up">
+    <h2 class="section-title"><i class="fas fa-quote-right"></i> Citation</h2>
+    <div class="content">
+      <p>Please use the following BibTeX entry to cite this work:</p>
+      <div class="citation-box">
+        <pre>@inproceedings{manas2025shift,
   title     = {Uncertainty-Aware Trajectory Prediction via Rule-Regularized Heteroscedastic Deep Classification},
   author    = {Manas, Kumar and Schlauch, Christian and Paschke, Adrian and Wirth, Christian and Klein, Nadja},
   booktitle = {Proceedings of the Robotics: Science and Systems (RSS)},
   year      = {2025}
 }</pre>
+      </div>
     </div>
-  </div>
-</section>
-
+  </section>
 
   <!-- Footer -->
   <footer class="footer">
     <p>
-      <strong>SHIFT</strong> project by Kumar Manas et al. | Website template adapted from 
+      <strong><i class="fas fa-arrow-right"></i> SHIFT</strong> project by Kumar Manas et al. | Website template adapted from 
       <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>
     </p>
     <p>
-      <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
-      <a href="https://github.com/kumarmanas/SHIFT"><i class="fab fa-github"></i> GitHub</a>
+      <a href="http://creativecommons.org/licenses/by-sa/4.0/"><i class="fab fa-creative-commons"></i> CC BY-SA 4.0</a> |
+      <a href="https://github.com/kumarmanas/SHIFT"><i class="fab fa-github"></i> GitHub</a> |
+      <a href="https://www.linkedin.com/in/kumarmanas27"><i class="fab fa-linkedin"></i> LinkedIn</a> |
+
     </p>
   </footer>
 
+  <!-- JavaScript for interactive elements -->
   <script>
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+    });
+    
     // Toggle detailed results view
     document.getElementById('toggle-results').addEventListener('click', function() {
       var detailed = document.getElementById('detailed-results');
@@ -567,6 +763,12 @@
         detailed.style.display = 'none';
         this.textContent = 'Show Detailed Results';
       }
+    });
+    
+    // Load teaser animation content
+    document.addEventListener('DOMContentLoaded', function() {
+      // This is where your teaser animation initialization would go
+      // It will be handled by your teaser-animation.js file
     });
   </script>
 </body>

@@ -38,27 +38,27 @@ function createTeaserAnimation(containerId) {
         <!-- Predicted Paths (initially hidden) -->
         <g id="prediction-paths" style="display: none;">
           <path d="M 250,200 Q 300,180 350,180 T 450,190" stroke="#9b59b6" stroke-width="3" fill="none" stroke-dasharray="5,5" />
-          <path id="alt-path-1" d="M 250,200 Q 300,190 350,210 T 450,230" stroke="#9b59b6" stroke-width="3" fill="none" stroke-dasharray="5,5" style="opacity: 0.7; display: none;" />
-          <path id="alt-path-2" d="M 250,200 Q 300,170 350,150 T 450,150" stroke="#9b59b6" stroke-width="3" fill="none" stroke-dasharray="5,5" style="opacity: 0.5; display: none;" />
+          <path id="alt-path-1" d="M 250,200 Q 300,190 350,210 T 450,230" stroke="#9b59b6" stroke-width="3" fill="none" stroke-dasharray="5,5" style="opacity: 0.8; display: none;" />
+          <path id="alt-path-2" d="M 250,200 Q 300,170 350,150 T 450,150" stroke="#9b59b6" stroke-width="3" fill="none" stroke-dasharray="5,5" style="opacity: 0.6; display: none;" />
         </g>
         
         <!-- Uncertainty Zone (initially hidden) -->
         <path id="uncertainty-zone" d="M 250,200 Q 300,170 350,150 T 450,150 L 450,190 Q 350,180 300,180 T 250,200 Z" 
-              fill="rgba(241, 196, 15, 0.3)" stroke="#f39c12" stroke-width="2" style="display: none;" />
+              fill="rgba(241, 196, 15, 0.5)" stroke="#f39c12" stroke-width="2" style="display: none;" />
         
         <!-- Traffic Rules Zone (initially hidden) -->
         <path id="rules-zone" d="M 250,200 Q 300,180 350,180 T 450,190 L 450,150 Q 350,150 300,170 T 250,200 Z" 
-              fill="rgba(52, 152, 219, 0.2)" stroke="#3498db" stroke-width="2" style="display: none;" />
+              fill="rgba(52, 152, 219, 0.4)" stroke="#3498db" stroke-width="2" style="display: none;" />
         
-        <!-- Labels -->
-        <text x="120" y="270" fill="#2ecc71" font-weight="bold">Observed</text>
-        <text x="350" y="150" fill="#9b59b6" font-weight="bold" id="predicted-label" style="display: none;">Predicted</text>
-        <text x="380" y="220" fill="#f39c12" font-weight="bold" id="uncertainty-label" style="display: none;">Uncertainty</text>
-        <text x="300" y="150" fill="#3498db" font-weight="bold" id="rules-label" style="display: none;">Traffic Rules</text>
+        <!-- Enhanced Labels with better visibility -->
+        <text x="120" y="270" fill="#2ecc71" font-weight="bold" font-size="14" class="animation-label">Observed</text>
+        <text x="350" y="150" fill="#9b59b6" font-weight="bold" font-size="14" id="predicted-label" style="display: none;" class="animation-label">Predicted</text>
+        <text x="380" y="220" fill="#f39c12" font-weight="bold" font-size="14" id="uncertainty-label" style="display: none;" class="animation-label">Uncertainty</text>
+        <text x="300" y="150" fill="#3498db" font-weight="bold" font-size="14" id="rules-label" style="display: none;" class="animation-label">Traffic Rules</text>
         
-        <text x="250" y="185" fill="white" font-size="10">EGO</text>
-        <text x="407" y="180" fill="white" font-size="10">V1</text>
-        <text x="357" y="240" fill="white" font-size="10">V2</text>
+        <text x="250" y="185" fill="white" font-weight="bold" font-size="11">EGO</text>
+        <text x="407" y="180" fill="white" font-weight="bold" font-size="11">V1</text>
+        <text x="357" y="240" fill="white" font-weight="bold" font-size="11">V2</text>
         
         <!-- Stage indicators -->
         <circle cx="260" cy="350" r="8" fill="#ddd" id="indicator-1" />
